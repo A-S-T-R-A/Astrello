@@ -49,7 +49,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
             error: "Failed to delete.",
         }
     } finally {
-        revalidatePath(`/organization/${orgId}`)
+        // revalidatePath(`/organization/${orgId}`)
         redirect(`/`)
     }
 }
