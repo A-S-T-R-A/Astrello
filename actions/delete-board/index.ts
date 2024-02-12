@@ -50,7 +50,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         }
     }
 
-    revalidatePath(`/board/${id}`)
+    // revalidatePath(`/board/${id}`)
     redirect(`/organization/${orgId}`)
 }
 
