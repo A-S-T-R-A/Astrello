@@ -2,7 +2,7 @@
 
 import { toast } from "sonner"
 import { useAction } from "@/hooks/use-action"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/shared/ui/button"
 import { stripeRedirect } from "@/actions/stripe-redirect"
 import { useProModal } from "@/hooks/use-pro-modal"
 

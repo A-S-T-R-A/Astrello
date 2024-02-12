@@ -4,9 +4,9 @@ import { ElementRef, ReactNode, useRef } from "react"
 import { toast } from "sonner"
 import { X } from "lucide-react"
 import { useRouter } from "next/navigation"
-import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/components/ui/popover"
+import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/shared/ui/popover"
 import { useAction } from "@/hooks/use-action"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/shared/ui/button"
 import { createBoard } from "@/actions/create-board"
 import { useProModal } from "@/hooks/use-pro-modal"
 import { FormInput } from "./form-input"
@@ -29,7 +29,6 @@ export function FormPopover(props: FormPopoverProps) {
 
     const { execute, fieldErrors } = useAction(createBoard, {
         onSuccess: data => {
-            console.log(data)
             toast.success("Board created!")
             closeRef.current?.click()
             router.push(`/board/${data.id}`)

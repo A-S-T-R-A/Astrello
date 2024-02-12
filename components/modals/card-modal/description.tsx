@@ -9,10 +9,10 @@ import { useEventListener, useOnClickOutside } from "usehooks-ts"
 import { useAction } from "@/hooks/use-action"
 import { updateCard } from "@/actions/update-card"
 import { CardWithList } from "@/types"
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from "@/shared/ui/skeleton"
 import { FormTextarea } from "@/components/form/form-textarea"
 import { FormSubmit } from "@/components/form/form-submit"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/shared/ui/button"
 
 interface DescriptionProps {
     data: CardWithList

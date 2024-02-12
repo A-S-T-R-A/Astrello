@@ -3,11 +3,10 @@
 import { useRouter, usePathname } from "next/navigation"
 import Image from "next/image"
 import { Activity, CreditCard, Layout, Settings } from "lucide-react"
-
 import { cn } from "@/lib/utils"
-import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
-import { Skeleton } from "@/components/ui/skeleton"
+import { AccordionContent, AccordionItem, AccordionTrigger } from "@/shared/ui/accordion"
+import { Button } from "@/shared/ui/button"
+import { Skeleton } from "@/shared/ui/skeleton"
 
 export type Organization = {
     id: string

@@ -3,7 +3,7 @@
 import { toast } from "sonner"
 import { ElementRef, useRef, useState } from "react"
 import { Board } from "@prisma/client"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/shared/ui/button"
 import { FormInput } from "@/components/form/form-input"
 import { updateBoard } from "@/actions/update-board"
 import { useAction } from "@/hooks/use-action"
