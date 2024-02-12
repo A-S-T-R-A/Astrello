@@ -44,15 +44,14 @@ const handler = async (data: InputType): Promise<ReturnType> => {
             entityType: ENTITY_TYPE.BOARD,
             action: ACTION.DELETE,
         })
-        redirect(`/organization/${orgId}`)
     } catch (error) {
         return {
             error: "Failed to delete.",
         }
     }
 
-    // revalidatePath(`/board/${id}`)
-    // redirect(`/organization/${orgId}`)
+    revalidatePath(`/board/${id}`)
+    redirect(`/organization/${orgId}`)
 }
 
 export const deleteBoard = createSafeAction(DeleteBoard, handler)
