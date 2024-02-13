@@ -5,11 +5,11 @@ import { List } from "@prisma/client"
 import { ElementRef, useRef } from "react"
 import { MoreHorizontal, X } from "lucide-react"
 import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/shared/ui/popover"
-import { useAction } from "@/hooks/use-action"
+import { useAction } from "@/shared/hooks/use-action"
 import { Button } from "@/shared/ui/button"
 import { copyList } from "@/actions/copy-list"
 import { deleteList } from "@/actions/delete-list"
-import { FormSubmit } from "@/components/form/form-submit"
+import { FormSubmit } from "@/shared/ui/form/form-submit"
 import { Separator } from "@/shared/ui/separator"
 
 interface ListOptionsProps {

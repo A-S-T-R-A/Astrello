@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import { Separator } from "@/shared/ui/separator"
 import { Info } from "../_components/info"
 import { ActivityList } from "./_components/activity-list"
-import { checkSubscription } from "@/lib/subscription"
+import { checkSubscription } from "@/shared/lib/subscription"
 
 export default async function ActivityPage() {
     const isPro = await checkSubscription()

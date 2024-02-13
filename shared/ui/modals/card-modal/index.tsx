@@ -2,9 +2,9 @@
 
 import { useQuery } from "@tanstack/react-query"
 import { CardWithList } from "@/types"
-import { fetcher } from "@/lib/fetcher"
+import { fetcher } from "@/shared/lib/fetcher"
 import { AuditLog } from "@prisma/client"
-import { useCardModal } from "@/hooks/use-card-modal"
+import { useCardModal } from "@/shared/hooks/use-card-modal"
 import { Dialog, DialogContent } from "@/shared/ui/dialog"
 import { Header } from "./header"
 import { Description } from "./description"

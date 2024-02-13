@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
-import { db } from "@/lib/db"
+import { db } from "@/shared/lib/db"
 import { ActivityItem } from "@/shared/ui/activity-item"
 import { Skeleton } from "@/shared/ui/skeleton"
 

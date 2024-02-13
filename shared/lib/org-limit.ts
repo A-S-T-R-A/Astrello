@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs"
-import { db } from "@/lib/db"
-import { MAX_FREE_BOARDS } from "@/constants/boards"
+import { db } from "@/shared/lib/db"
+import { MAX_FREE_BOARDS } from "@/shared/constants/boards"
 
 export async function incrementAvailableCount() {
     const { orgId } = auth()

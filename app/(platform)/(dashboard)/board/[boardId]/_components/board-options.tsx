@@ -3,7 +3,7 @@
 import { toast } from "sonner"
 import { MoreHorizontal, X } from "lucide-react"
 import { deleteBoard } from "@/actions/delete-board"
-import { useAction } from "@/hooks/use-action"
+import { useAction } from "@/shared/hooks/use-action"
 import { Button } from "@/shared/ui/button"
 import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "@/shared/ui/popover"
 

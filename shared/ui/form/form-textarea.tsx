@@ -1,60 +1,67 @@
 "use client"
 
-import { forwardRef } from "react"
 import { useFormStatus } from "react-dom"
-import { cn } from "@/lib/utils"
+import { KeyboardEventHandler, forwardRef } from "react"
+import { cn } from "@/shared/lib/utils"
 import { Label } from "@/shared/ui/label"
-import { Input } from "@/shared/ui/input"
+import { Textarea } from "@/shared/ui/textarea"
+
 import { FormErrors } from "./form-errors"
 
-interface FormInputProps {
+interface FormTextareaProps {
     id: string
     label?: string
-    type?: string
     placeholder?: string
     required?: boolean
     disabled?: boolean
     errors?: Record<string, string[] | undefined>
     className?: string
-    defaultValue?: string
     onBlur?: () => void
+    onClick?: () => void
+    onKeyDown?: KeyboardEventHandler<HTMLTextAreaElement> | undefined
+    defaultValue?: string
 }
 
-export const FormInput = forwardRef<HTMLInputElement, FormInputProps>((props, ref) => {
+export const FormTextarea = forwardRef<HTMLTextAreaElement, FormTextareaProps>((props, ref) => {
     const {
         id,
         label,
-        type,
         placeholder,
         required,
         disabled,
         errors,
-        className,
-        defaultValue = "",
         onBlur,
+        onClick,
+        onKeyDown,
+        className,
+        defaultValue,
     } = props
     const { pending } = useFormStatus()
 
     return (
-        <div className="space-y-2">
-            <div className="space-y-1">
+        <div className="space-y-2 w-full">
+            <div className="space-y-1 w-full">
                 {label ? (
                     <Label htmlFor={id} className="text-xs font-semibold text-neutral-700">
                         {label}
                     </Label>
                 ) : null}
-                <Input
+                <Textarea
+                    onKeyDown={onKeyDown}
                     onBlur={onBlur}
-                    defaultValue={defaultValue}
+                    onClick={onClick}
                     ref={ref}
                     required={required}
+                    placeholder={placeholder}
                     name={id}
                     id={id}
-                    placeholder={placeholder}
-                    type={type}
                     disabled={pending || disabled}
-                    className={cn("text-sm px-2 py-1 h-7", className)}
+                    className={cn(
+                        "resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none shadow-sm",
+                        className
+                    )}
                     aria-describedby={`${id}-error`}
+                    defaultValue={defaultValue}
                 />
             </div>
             <FormErrors id={id} errors={errors} />
@@ -62,4 +69,4 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>((props, re
     )
 })
 
-FormInput.displayName = "FormInput"
+FormTextarea.displayName = "FormTextarea"

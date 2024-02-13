@@ -6,10 +6,10 @@ import { Layout } from "lucide-react"
 import { useParams } from "next/navigation"
 import { useQueryClient } from "@tanstack/react-query"
 import { CardWithList } from "@/types"
-import { useAction } from "@/hooks/use-action"
+import { useAction } from "@/shared/hooks/use-action"
 import { updateCard } from "@/actions/update-card"
 import { Skeleton } from "@/shared/ui/skeleton"
-import { FormInput } from "@/components/form/form-input"
+import { FormInput } from "@/shared/ui/form/form-input"
 
 interface HeaderProps {
     data: CardWithList

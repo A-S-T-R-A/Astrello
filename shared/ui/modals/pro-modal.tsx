@@ -3,9 +3,9 @@
 import Image from "next/image"
 
 import { Button } from "@/shared/ui/button"
-import { useProModal } from "@/hooks/use-pro-modal"
+import { useProModal } from "@/shared/hooks/use-pro-modal"
 import { Dialog, DialogContent } from "@/shared/ui/dialog"
-import { useAction } from "@/hooks/use-action"
+import { useAction } from "@/shared/hooks/use-action"
 import { stripeRedirect } from "@/actions/stripe-redirect"
 import { toast } from "sonner"
 
