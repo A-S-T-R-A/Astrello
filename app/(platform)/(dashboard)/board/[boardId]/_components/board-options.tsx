@@ -13,8 +13,6 @@ interface BoardOptionsProps {
 }
 
 export function BoardOptions({ id }: BoardOptionsProps) {
-    const { push } = useRouter()
-
     const { execute, isLoading } = useAction(deleteBoard, {
         onError: error => {
             toast.error(error)
@@ -22,7 +20,6 @@ export function BoardOptions({ id }: BoardOptionsProps) {
     })
 
     function onDelete() {
-        push("/")
         execute({ id })
     }
 
