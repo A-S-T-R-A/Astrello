@@ -6,13 +6,15 @@ import { deleteBoard } from "@/actions/delete-board"
 import { useAction } from "@/shared/hooks/use-action"
 import { Button } from "@/shared/ui/button"
 import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "@/shared/ui/popover"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/router"
 
 interface BoardOptionsProps {
     id: string
 }
 
 export function BoardOptions({ id }: BoardOptionsProps) {
+    const { push } = useRouter()
+
     const { execute, isLoading } = useAction(deleteBoard, {
         onError: error => {
             toast.error(error)
@@ -20,8 +22,8 @@ export function BoardOptions({ id }: BoardOptionsProps) {
     })
 
     function onDelete() {
+        push("/")
         execute({ id })
-        redirect("/")
     }
 
     return (
