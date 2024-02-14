@@ -6,6 +6,7 @@ import { deleteBoard } from "@/actions/delete-board"
 import { useAction } from "@/shared/hooks/use-action"
 import { Button } from "@/shared/ui/button"
 import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "@/shared/ui/popover"
+import { redirect } from "next/navigation"
 
 interface BoardOptionsProps {
     id: string
@@ -20,6 +21,7 @@ export function BoardOptions({ id }: BoardOptionsProps) {
 
     function onDelete() {
         execute({ id })
+        redirect("/")
     }
 
     return (
