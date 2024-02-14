@@ -3,10 +3,10 @@
 import { toast } from "sonner"
 import { ElementRef, useRef, useState } from "react"
 import { Board } from "@prisma/client"
-import { Button } from "@/components/ui/button"
-import { FormInput } from "@/components/form/form-input"
+import { Button } from "@/shared/ui/button"
+import { FormInput } from "@/shared/ui/form/form-input"
 import { updateBoard } from "@/actions/update-board"
-import { useAction } from "@/hooks/use-action"
+import { useAction } from "@/shared/hooks/use-action"
 
 interface BoardTitleFormProps {
     data: Board

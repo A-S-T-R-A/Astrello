@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 import { auth } from "@clerk/nextjs"
 import { notFound, redirect } from "next/navigation"
-import { db } from "@/lib/db"
+import { db } from "@/shared/lib/db"
 import { BoardNavbar } from "./_components/board-navbar"
 
 export async function generateMetadata({ params }: { params: { boardId: string } }) {

@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/shared/ui/button"
 import localFont from "next/font/local"
 import { Medal } from "lucide-react"
 import Link from "next/link"
-import { cn } from "@/lib/utils"
+import { cn } from "@/shared/lib/utils"
 import { Poppins } from "next/font/google"
 
 const headingFont = localFont({
@@ -25,7 +25,7 @@ export default function MarketingPage() {
                 <h1 className="text-3xl md:text-6xl text-center text-neutral-800 mb-6">
                     Astrello helps team move
                 </h1>
-                <div className="text-3xl md:text-6xl bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white px-4 p-2 rounded-md pb-4 w-fit">
+                <div className="text-3xl md:text-6xl bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white px-4 p-2 rounded-md pb-3 w-fit">
                     work forward.
                 </div>
             </div>
