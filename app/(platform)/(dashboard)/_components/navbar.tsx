@@ -1,8 +1,8 @@
 import { Plus } from "lucide-react"
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
-import { Logo } from "@/components/logo"
-import { Button } from "@/components/ui/button"
-import { FormPopover } from "@/components/form/form-popover"
+import { Logo } from "@/shared/ui/logo"
+import { Button } from "@/shared/ui/button"
+import { FormPopover } from "@/shared/ui/form/form-popover"
 import { MobileSidebar } from "./mobile-sidebar"
 
 export function Navbar() {

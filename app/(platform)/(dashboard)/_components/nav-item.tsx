@@ -3,11 +3,10 @@
 import { useRouter, usePathname } from "next/navigation"
 import Image from "next/image"
 import { Activity, CreditCard, Layout, Settings } from "lucide-react"
-
-import { cn } from "@/lib/utils"
-import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
-import { Skeleton } from "@/components/ui/skeleton"
+import { cn } from "@/shared/lib/utils"
+import { AccordionContent, AccordionItem, AccordionTrigger } from "@/shared/ui/accordion"
+import { Button } from "@/shared/ui/button"
+import { Skeleton } from "@/shared/ui/skeleton"
 
 export type Organization = {
     id: string
@@ -72,7 +71,9 @@ export function NavItem({ isExpanded, isActive, organization, onExpand }: NavIte
                             className="rounded-sm object-cover"
                         />
                     </div>
-                    <span className="font-medium text-sm">{organization.name}</span>
+                    <span className="truncate max-w-40 font-medium text-sm">
+                        {organization.name}
+                    </span>
                 </div>
             </AccordionTrigger>
             <AccordionContent className="pt-1 text-neutral-700">

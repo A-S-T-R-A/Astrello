@@ -2,13 +2,13 @@ import Link from "next/link"
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
 import { HelpCircle, User2 } from "lucide-react"
-import { db } from "@/lib/db"
-import { Hint } from "@/components/hint"
-import { Skeleton } from "@/components/ui/skeleton"
-import { FormPopover } from "@/components/form/form-popover"
-import { MAX_FREE_BOARDS } from "@/constants/boards"
-import { getAvailableCount } from "@/lib/org-limit"
-import { checkSubscription } from "@/lib/subscription"
+import { db } from "@/shared/lib/db"
+import { Hint } from "@/shared/ui/hint"
+import { Skeleton } from "@/shared/ui/skeleton"
+import { FormPopover } from "@/shared/ui/form/form-popover"
+import { MAX_FREE_BOARDS } from "@/shared/constants/boards"
+import { getAvailableCount } from "@/shared/lib/org-limit"
+import { checkSubscription } from "@/shared/lib/subscription"
 
 export async function BoardList() {
     const { orgId } = auth()
@@ -47,7 +47,7 @@ export async function BoardList() {
                         <p className="relative font-semibold text-white">{board.title}</p>
                     </Link>
                 ))}
-                <FormPopover sideOffset={10} side="right">
+                <FormPopover sideOffset={10} side="bottom">
                     <div
                         role="button"
                         className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition"

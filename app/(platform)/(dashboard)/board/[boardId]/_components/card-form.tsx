@@ -5,11 +5,11 @@ import { Plus, X } from "lucide-react"
 import { forwardRef, useRef, ElementRef, KeyboardEventHandler } from "react"
 import { useParams } from "next/navigation"
 import { useOnClickOutside, useEventListener } from "usehooks-ts"
-import { useAction } from "@/hooks/use-action"
+import { useAction } from "@/shared/hooks/use-action"
 import { createCard } from "@/actions/create-card"
-import { Button } from "@/components/ui/button"
-import { FormSubmit } from "@/components/form/form-submit"
-import { FormTextarea } from "@/components/form/form-textarea"
+import { Button } from "@/shared/ui/button"
+import { FormSubmit } from "@/shared/ui/form/form-submit"
+import { FormTextarea } from "@/shared/ui/form/form-textarea"
 
 interface CardFormProps {
     listId: string
