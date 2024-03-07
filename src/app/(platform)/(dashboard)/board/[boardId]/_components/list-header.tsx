@@ -4,12 +4,10 @@ import { toast } from "sonner"
 import { List } from "@prisma/client"
 import { useEventListener } from "usehooks-ts"
 import { useState, useRef, ElementRef } from "react"
-
 import { useAction } from "@/shared/hooks/use-action"
-import { updateList } from "@/actions/update-list"
 import { FormInput } from "@/shared/ui/form/form-input"
-
 import { ListOptions } from "./list-options"
+import { updateList } from "@/app/actions/update-list"
 
 interface ListHeaderProps {
     data: List

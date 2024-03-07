@@ -5,8 +5,8 @@ import { ElementRef, useRef, useState } from "react"
 import { Board } from "@prisma/client"
 import { Button } from "@/shared/ui/button"
 import { FormInput } from "@/shared/ui/form/form-input"
-import { updateBoard } from "@/actions/update-board"
 import { useAction } from "@/shared/hooks/use-action"
+import { updateBoard } from "@/app/actions/update-board"
 
 interface BoardTitleFormProps {
     data: Board

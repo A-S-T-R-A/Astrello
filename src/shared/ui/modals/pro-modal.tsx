@@ -6,8 +6,8 @@ import { Button } from "@/shared/ui/button"
 import { useProModal } from "@/shared/hooks/use-pro-modal"
 import { Dialog, DialogContent } from "@/shared/ui/dialog"
 import { useAction } from "@/shared/hooks/use-action"
-import { stripeRedirect } from "@/actions/stripe-redirect"
 import { toast } from "sonner"
+import { stripeRedirect } from "@/app/actions/stripe-redirect"
 
 export function ProModal() {
     const proModal = useProModal()

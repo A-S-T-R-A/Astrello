@@ -7,12 +7,12 @@ import { useState, useRef, ElementRef } from "react"
 import { useQueryClient } from "@tanstack/react-query"
 import { useEventListener, useOnClickOutside } from "usehooks-ts"
 import { useAction } from "@/shared/hooks/use-action"
-import { updateCard } from "@/actions/update-card"
-import { CardWithList } from "@/types"
 import { Skeleton } from "@/shared/ui/skeleton"
 import { FormTextarea } from "@/shared/ui/form/form-textarea"
 import { FormSubmit } from "@/shared/ui/form/form-submit"
 import { Button } from "@/shared/ui/button"
+import { CardWithList } from "@/app/types"
+import { updateCard } from "@/app/actions/update-card"
 
 interface DescriptionProps {
     data: CardWithList

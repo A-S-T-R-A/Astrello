@@ -3,12 +3,12 @@
 import { toast } from "sonner"
 import { useEffect, useState } from "react"
 import { DragDropContext, Droppable } from "@hello-pangea/dnd"
-import { ListWithCards } from "@/types"
 import { useAction } from "@/shared/hooks/use-action"
-import { updateListOrder } from "@/actions/update-list-order"
-import { updateCardOrder } from "@/actions/update-card-order"
 import { ListForm } from "./list-form"
 import { ListItem } from "./list-item"
+import { updateListOrder } from "@/app/actions/update-list-order"
+import { updateCardOrder } from "@/app/actions/update-card-order"
+import { ListWithCards } from "@/app/types"
 
 interface ListContainerProps {
     data: ListWithCards[]

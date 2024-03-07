@@ -1,12 +1,12 @@
 import type { Config } from "tailwindcss"
 
-const config = {
+const config: Config = {
     darkMode: ["class"],
     content: [
-        "./pages/**/*.{ts,tsx}",
-        "./app/**/*.{ts,tsx}",
-        "./src/**/*.{ts,tsx}",
-        "./shared/**/*.{ts,tsx}",
+        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/shared/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     prefix: "",
     theme: {

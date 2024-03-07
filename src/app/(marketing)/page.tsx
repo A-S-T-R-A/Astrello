@@ -6,7 +6,7 @@ import { cn } from "@/shared/lib/utils"
 import { Poppins } from "next/font/google"
 
 const headingFont = localFont({
-    src: "../../public/fonts/font.woff2",
+    src: "../../../public/fonts/font.woff2",
 })
 
 const textFont = Poppins({

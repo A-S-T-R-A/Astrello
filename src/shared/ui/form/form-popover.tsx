@@ -7,11 +7,11 @@ import { useRouter } from "next/navigation"
 import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/shared/ui/popover"
 import { useAction } from "@/shared/hooks/use-action"
 import { Button } from "@/shared/ui/button"
-import { createBoard } from "@/actions/create-board"
 import { useProModal } from "@/shared/hooks/use-pro-modal"
 import { FormInput } from "./form-input"
 import { FormSubmit } from "./form-submit"
 import { FormPicker } from "./form-picker"
+import { createBoard } from "@/app/actions/create-board"
 
 interface FormPopoverProps {
     children: ReactNode
