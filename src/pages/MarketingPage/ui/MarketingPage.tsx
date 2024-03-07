@@ -6,7 +6,7 @@ import { cn } from "@/shared/lib/utils"
 import { Poppins } from "next/font/google"
 
 const headingFont = localFont({
-    src: "../../../public/fonts/font.woff2",
+    src: "../../../../public/fonts/font.woff2",
 })
 
 const textFont = Poppins({
@@ -14,7 +14,7 @@ const textFont = Poppins({
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
 
-export default function MarketingPage() {
+export function MarketingPage() {
     return (
         <div className="flex items-center justify-center flex-col">
             <div className={cn("flex items-center justify-center flex-col", headingFont.className)}>
