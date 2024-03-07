@@ -12,9 +12,9 @@ export function OrgControl() {
         if (!setActive) return
 
         setActive({
-            organization: params.organizationId as string,
+            organization: params?.organizationId as string,
         })
-    }, [setActive, params.organizationId])
+    }, [setActive, params?.organizationId])
 
     return null
 }

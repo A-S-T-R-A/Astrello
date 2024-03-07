@@ -47,7 +47,7 @@ export function Header({ data }: HeaderProps) {
 
     function onSubmit(formData: FormData) {
         const title = formData.get("title") as string
-        const boardId = params.boardId as string
+        const boardId = params?.boardId as string
 
         if (title === data.title) {
             return

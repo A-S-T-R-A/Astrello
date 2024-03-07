@@ -1,7 +1,6 @@
 "use client"
 
 import { useQuery } from "@tanstack/react-query"
-import { CardWithList } from "@/types"
 import { fetcher } from "@/shared/lib/fetcher"
 import { AuditLog } from "@prisma/client"
 import { useCardModal } from "@/shared/hooks/use-card-modal"
@@ -10,6 +9,7 @@ import { Header } from "./header"
 import { Description } from "./description"
 import { Actions } from "./actions"
 import { Activity } from "./activity"
+import { CardWithList } from "@/app/types"
 
 export function CardModal() {
     const id = useCardModal(state => state.id)

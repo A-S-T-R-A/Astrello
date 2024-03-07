@@ -40,7 +40,7 @@ export function Actions({ data }: ActionsProps) {
     })
 
     function onCopy() {
-        const boardId = params.boardId as string
+        const boardId = params?.boardId as string
 
         executeCopyCard({
             id: data.id,
@@ -49,7 +49,7 @@ export function Actions({ data }: ActionsProps) {
     }
 
     function onDelete() {
-        const boardId = params.boardId as string
+        const boardId = params?.boardId as string
 
         executeDeleteCard({
             id: data.id,
