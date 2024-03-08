@@ -1,10 +1,10 @@
 "use client"
 
 import { toast } from "sonner"
-import { useAction } from "@/shared/hooks/use-action"
-import { Button } from "@/shared/ui/button"
+import { useAction } from "@/_shared/hooks/use-action"
+import { Button } from "@/_shared/ui/button"
 
-import { useProModal } from "@/shared/hooks/use-pro-modal"
+import { useProModal } from "@/_shared/hooks/use-pro-modal"
 import { stripeRedirect } from "@/app/actions/stripe-redirect"
 
 interface SubscriptionButtonProps {

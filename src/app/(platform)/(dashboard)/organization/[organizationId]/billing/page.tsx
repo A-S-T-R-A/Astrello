@@ -1,5 +1,5 @@
-import { checkSubscription } from "@/shared/lib/subscription"
-import { Separator } from "@/shared/ui/separator"
+import { checkSubscription } from "@/_shared/lib/subscription"
+import { Separator } from "@/_shared/ui/separator"
 import { SubscriptionButton } from "./_components/subscription-button"
 import { Info } from "../_components/info"
 

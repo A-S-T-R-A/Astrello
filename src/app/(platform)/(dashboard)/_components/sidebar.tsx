@@ -4,9 +4,9 @@ import Link from "next/link"
 import { Plus } from "lucide-react"
 import { useLocalStorage } from "usehooks-ts"
 import { useOrganization, useOrganizationList } from "@clerk/nextjs"
-import { Button } from "@/shared/ui/button"
-import { Skeleton } from "@/shared/ui/skeleton"
-import { Accordion } from "@/shared/ui/accordion"
+import { Button } from "@/_shared/ui/button"
+import { Skeleton } from "@/_shared/ui/skeleton"
+import { Accordion } from "@/_shared/ui/accordion"
 
 import { NavItem, Organization } from "./nav-item"
 

@@ -2,14 +2,14 @@
 
 import { auth } from "@clerk/nextjs"
 import { revalidatePath } from "next/cache"
-import { db } from "@/shared/lib/db"
-import { createSafeAction } from "@/shared/lib/create-safe-action"
+import { db } from "@/_shared/lib/db"
+import { createSafeAction } from "@/_shared/lib/create-safe-action"
 import { InputType, ReturnType } from "./types"
 import { CreateBoard } from "./schema"
-import { createAuditLog } from "@/shared/lib/create-audit-log"
+import { createAuditLog } from "@/_shared/lib/create-audit-log"
 import { ACTION, ENTITY_TYPE } from "@prisma/client"
-import { incrementAvailableCount, hasAvailableCount } from "@/shared/lib/org-limit"
-import { checkSubscription } from "@/shared/lib/subscription"
+import { incrementAvailableCount, hasAvailableCount } from "@/_shared/lib/org-limit"
+import { checkSubscription } from "@/_shared/lib/subscription"
 
 const handler = async (data: InputType): Promise<ReturnType> => {
     const { userId, orgId } = auth()

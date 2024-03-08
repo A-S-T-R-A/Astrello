@@ -1,6 +1,6 @@
 import { z } from "zod"
 import { Board } from "@prisma/client"
-import { ActionState } from "@/shared/lib/create-safe-action"
+import { ActionState } from "@/_shared/lib/create-safe-action"
 import { CreateBoard } from "./schema"
 
 export type InputType = z.infer<typeof CreateBoard>

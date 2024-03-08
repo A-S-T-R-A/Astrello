@@ -2,12 +2,12 @@
 
 import { auth, currentUser } from "@clerk/nextjs"
 import { revalidatePath } from "next/cache"
-import { db } from "@/shared/lib/db"
-import { createSafeAction } from "@/shared/lib/create-safe-action"
+import { db } from "@/_shared/lib/db"
+import { createSafeAction } from "@/_shared/lib/create-safe-action"
 import { StripeRedirect } from "./schema"
 import { InputType, ReturnType } from "./types"
-import { absoluteUrl } from "@/shared/lib/utils"
-import { stripe } from "@/shared/lib/stripe"
+import { absoluteUrl } from "@/_shared/lib/utils"
+import { stripe } from "@/_shared/lib/stripe"
 
 const handler = async (data: InputType): Promise<ReturnType> => {
     const { userId, orgId } = auth()

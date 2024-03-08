@@ -2,7 +2,7 @@
 
 import { ElementRef, useRef, useState } from "react"
 import { Draggable, Droppable } from "@hello-pangea/dnd"
-import { cn } from "@/shared/lib/utils"
+import { cn } from "@/_shared/lib/utils"
 import { CardForm } from "./card-form"
 import { CardItem } from "./card-item"
 import { ListHeader } from "./list-header"

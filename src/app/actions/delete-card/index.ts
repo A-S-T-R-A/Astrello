@@ -2,11 +2,11 @@
 
 import { auth } from "@clerk/nextjs"
 import { revalidatePath } from "next/cache"
-import { db } from "@/shared/lib/db"
-import { createSafeAction } from "@/shared/lib/create-safe-action"
+import { db } from "@/_shared/lib/db"
+import { createSafeAction } from "@/_shared/lib/create-safe-action"
 import { DeleteCard } from "./schema"
 import { InputType, ReturnType } from "./types"
-import { createAuditLog } from "@/shared/lib/create-audit-log"
+import { createAuditLog } from "@/_shared/lib/create-audit-log"
 import { ACTION, ENTITY_TYPE } from "@prisma/client"
 
 const handler = async (data: InputType): Promise<ReturnType> => {

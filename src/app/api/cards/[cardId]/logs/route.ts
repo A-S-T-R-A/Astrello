@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs"
 import { NextResponse } from "next/server"
 import { ENTITY_TYPE } from "@prisma/client"
-import { db } from "@/shared/lib/db"
+import { db } from "@/_shared/lib/db"
 
 export async function GET(request: Request, { params }: { params: { cardId: string } }) {
     try {
