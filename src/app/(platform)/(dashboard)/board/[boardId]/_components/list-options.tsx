@@ -7,10 +7,10 @@ import { MoreHorizontal, X } from "lucide-react"
 import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/_shared/ui/popover"
 import { useAction } from "@/_shared/hooks/use-action"
 import { Button } from "@/_shared/ui/button"
-import { FormSubmit } from "@/_shared/ui/form/form-submit"
 import { Separator } from "@/_shared/ui/separator"
 import { deleteList } from "@/app/actions/delete-list"
 import { copyList } from "@/app/actions/copy-list"
+import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
 interface ListOptionsProps {
     data: List

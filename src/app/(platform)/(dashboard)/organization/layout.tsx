@@ -1,5 +1,5 @@
+import { Sidebar } from "@/_widgets/Sidebar"
 import { ReactNode } from "react"
-import { Sidebar } from "../_components/sidebar"
 
 export default function OrganizationLayout({ children }: { children: ReactNode }) {
     return (

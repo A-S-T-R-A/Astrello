@@ -8,19 +8,19 @@ import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/_shared
 import { useAction } from "@/_shared/hooks/use-action"
 import { Button } from "@/_shared/ui/button"
 import { useProModal } from "@/_shared/hooks/use-pro-modal"
-import { FormInput } from "./form-input"
-import { FormSubmit } from "./form-submit"
-import { FormPicker } from "./form-picker"
 import { createBoard } from "@/app/actions/create-board"
+import { BoardImgPicker } from "./BoardImgPicker/BoardImgPicker"
+import { FormInput } from "@/_shared/ui/FormInput"
+import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
-interface FormPopoverProps {
+type TCreateBoardProps = {
     children: ReactNode
     side?: "left" | "right" | "top" | "bottom"
     align?: "start" | "center" | "end"
     sideOffset?: number
 }
 
-export function FormPopover(props: FormPopoverProps) {
+export function CreateBoard(props: TCreateBoardProps) {
     const { children, side = "bottom", align, sideOffset = 0 } = props
 
     const proModal = useProModal()
@@ -63,7 +63,7 @@ export function FormPopover(props: FormPopoverProps) {
                 </PopoverClose>
                 <form action={onSubmit} className="space-y-4">
                     <div className="space-y-4">
-                        <FormPicker id="image" errors={fieldErrors} />
+                        <BoardImgPicker id="image" errors={fieldErrors} />
                         <FormInput
                             id="title"
                             label="Board title"

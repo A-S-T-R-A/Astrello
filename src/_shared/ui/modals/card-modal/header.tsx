@@ -7,8 +7,8 @@ import { useParams } from "next/navigation"
 import { useQueryClient } from "@tanstack/react-query"
 import { useAction } from "@/_shared/hooks/use-action"
 import { Skeleton } from "@/_shared/ui/skeleton"
-import { FormInput } from "@/_shared/ui/form/form-input"
 import { CardWithList } from "@/app/types"
+import { FormInput } from "@/_shared/ui/FormInput"
 import { updateCard } from "@/app/actions/update-card"
 
 interface HeaderProps {

@@ -1,10 +1,11 @@
+import { Navbar } from "@/_widgets/Navbar"
+import { MobileSidebar } from "@/_widgets/Sidebar"
 import { ReactNode } from "react"
-import { Navbar } from "./_components/navbar"
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
         <div className="h-full">
-            <Navbar />
+            <Navbar slot={<MobileSidebar />} />
             {children}
         </div>
     )

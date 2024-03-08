@@ -4,7 +4,7 @@ import { useRouter, usePathname } from "next/navigation"
 import Image from "next/image"
 import { Activity, CreditCard, Layout, Settings } from "lucide-react"
 import { cn } from "@/_shared/lib/utils"
-import { AccordionContent, AccordionItem, AccordionTrigger } from "@/_shared/ui/accordion"
+import { AccordionContent, AccordionItem, AccordionTrigger } from "@/_shared/ui/Accordion"
 import { Button } from "@/_shared/ui/button"
 import { Skeleton } from "@/_shared/ui/skeleton"
 
@@ -22,7 +22,7 @@ interface NavItemProps {
     onExpand: (id: string) => void
 }
 
-export function NavItem({ isExpanded, isActive, organization, onExpand }: NavItemProps) {
+export function SidebarItemItem({ isExpanded, isActive, organization, onExpand }: NavItemProps) {
     const router = useRouter()
     const pathname = usePathname()
 
@@ -97,7 +97,7 @@ export function NavItem({ isExpanded, isActive, organization, onExpand }: NavIte
     )
 }
 
-NavItem.Skeleton = function SkeletonNavItem() {
+SidebarItemItem.Skeleton = function SkeletonNavItem() {
     return (
         <div className="flex items-center gap-x-2">
             <div className="w-10 h-10 relative shrink-0">

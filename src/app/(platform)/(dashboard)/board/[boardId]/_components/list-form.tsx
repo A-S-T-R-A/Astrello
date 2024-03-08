@@ -7,10 +7,10 @@ import { useState, useRef, ElementRef } from "react"
 import { useEventListener, useOnClickOutside } from "usehooks-ts"
 import { useAction } from "@/_shared/hooks/use-action"
 import { Button } from "@/_shared/ui/button"
-import { FormInput } from "@/_shared/ui/form/form-input"
-import { FormSubmit } from "@/_shared/ui/form/form-submit"
 import { ListWrapper } from "./list-wrapper"
 import { createList } from "@/app/actions/create-list"
+import { FormInput } from "@/_shared/ui/FormInput"
+import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
 export function ListForm() {
     const router = useRouter()

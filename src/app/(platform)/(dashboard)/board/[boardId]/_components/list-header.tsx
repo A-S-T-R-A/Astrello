@@ -5,9 +5,9 @@ import { List } from "@prisma/client"
 import { useEventListener } from "usehooks-ts"
 import { useState, useRef, ElementRef } from "react"
 import { useAction } from "@/_shared/hooks/use-action"
-import { FormInput } from "@/_shared/ui/form/form-input"
 import { ListOptions } from "./list-options"
 import { updateList } from "@/app/actions/update-list"
+import { FormInput } from "@/_shared/ui/FormInput"
 
 interface ListHeaderProps {
     data: List

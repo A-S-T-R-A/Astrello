@@ -1,14 +1,14 @@
-import Link from "next/link"
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
 import { HelpCircle, User2 } from "lucide-react"
 import { db } from "@/_shared/lib/db"
 import { Hint } from "@/_shared/ui/hint"
 import { Skeleton } from "@/_shared/ui/skeleton"
-import { FormPopover } from "@/_shared/ui/form/form-popover"
 import { MAX_FREE_BOARDS } from "@/_shared/constants/boards"
 import { getAvailableCount } from "@/_shared/lib/org-limit"
 import { checkSubscription } from "@/_shared/lib/subscription"
+import { BoardCard } from "@/_entities/Board"
+import { CreateBoard } from "@/_features/CreateBoard/ui/CreateBoard"
 
 export async function BoardList() {
     const { orgId } = auth()
@@ -37,17 +37,14 @@ export async function BoardList() {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {boards.map(board => (
-                    <Link
+                    <BoardCard
                         key={board.id}
-                        href={`/board/${board.id}`}
-                        className="group relative aspect-video bg-no-repeat bg-center bg-cover bg-sky-700 rounded-sm h-full w-full p-2 overflow-hidden"
-                        style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
-                    >
-                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition" />
-                        <p className="relative font-semibold text-white">{board.title}</p>
-                    </Link>
+                        id={board.id}
+                        imageThumbUrl={board.imageThumbUrl}
+                        title={board.title}
+                    />
                 ))}
-                <FormPopover sideOffset={10} side="bottom">
+                <CreateBoard sideOffset={10} side="bottom">
                     <div
                         role="button"
                         className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition"
@@ -63,7 +60,7 @@ export async function BoardList() {
                             <HelpCircle className="absolute bottom-2 right-2 h-[14px] w-[14px]" />
                         </Hint>
                     </div>
-                </FormPopover>
+                </CreateBoard>
             </div>
         </div>
     )

@@ -7,9 +7,9 @@ import { useParams } from "next/navigation"
 import { useOnClickOutside, useEventListener } from "usehooks-ts"
 import { useAction } from "@/_shared/hooks/use-action"
 import { Button } from "@/_shared/ui/button"
-import { FormSubmit } from "@/_shared/ui/form/form-submit"
-import { FormTextarea } from "@/_shared/ui/form/form-textarea"
+import { FormTextarea } from "@/_shared/ui/FormTextarea"
 import { createCard } from "@/app/actions/create-card"
+import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
 interface CardFormProps {
     listId: string

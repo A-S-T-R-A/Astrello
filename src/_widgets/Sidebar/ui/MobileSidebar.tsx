@@ -6,8 +6,7 @@ import { usePathname } from "next/navigation"
 import { useMobileSidebar } from "@/_shared/hooks/use-mobile-sidebar"
 import { Button } from "@/_shared/ui/button"
 import { Sheet, SheetContent } from "@/_shared/ui/sheet"
-
-import { Sidebar } from "./sidebar"
+import { Sidebar } from "./Sidebar"
 
 export function MobileSidebar() {
     const pathname = usePathname()

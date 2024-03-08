@@ -8,15 +8,15 @@ import { useEffect, useState } from "react"
 import { cn } from "@/_shared/lib/utils"
 import { unsplash } from "@/_shared/lib/unsplash"
 import { defaultImages } from "@/_shared/constants/images"
-import { FormErrors } from "./form-errors"
 import { toast } from "sonner"
+import { FormErrors } from "../../../../_shared/ui/FormErrors/ui/FormErrors"
 
-interface FormPickerProps {
+interface BoardImgPickerProps {
     id: string
     errors?: Record<string, string[] | undefined>
 }
 
-export function FormPicker({ id, errors }: FormPickerProps) {
+export function BoardImgPicker({ id, errors }: BoardImgPickerProps) {
     const { pending } = useFormStatus()
 
     const [images, setImages] = useState<Array<Record<string, any>>>(defaultImages)

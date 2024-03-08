@@ -8,11 +8,11 @@ import { useQueryClient } from "@tanstack/react-query"
 import { useEventListener, useOnClickOutside } from "usehooks-ts"
 import { useAction } from "@/_shared/hooks/use-action"
 import { Skeleton } from "@/_shared/ui/skeleton"
-import { FormTextarea } from "@/_shared/ui/form/form-textarea"
-import { FormSubmit } from "@/_shared/ui/form/form-submit"
+import { FormTextarea } from "@/_shared/ui/FormTextarea"
 import { Button } from "@/_shared/ui/button"
 import { CardWithList } from "@/app/types"
 import { updateCard } from "@/app/actions/update-card"
+import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
 interface DescriptionProps {
     data: CardWithList
