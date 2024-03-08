@@ -6,7 +6,7 @@ import { Activity, CreditCard, Layout, Settings } from "lucide-react"
 import { cn } from "@/_shared/lib/utils"
 import { AccordionContent, AccordionItem, AccordionTrigger } from "@/_shared/ui/Accordion"
 import { Button } from "@/_shared/ui/Button"
-import { Skeleton } from "@/_shared/ui/skeleton"
+import { Skeleton } from "@/_shared/ui/Skeleton"
 
 export type Organization = {
     id: string

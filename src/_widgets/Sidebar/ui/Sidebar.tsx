@@ -5,7 +5,7 @@ import { Plus } from "lucide-react"
 import { useLocalStorage } from "usehooks-ts"
 import { useOrganization, useOrganizationList } from "@clerk/nextjs"
 import { Button } from "@/_shared/ui/Button"
-import { Skeleton } from "@/_shared/ui/skeleton"
+import { Skeleton } from "@/_shared/ui/Skeleton"
 import { SidebarItemItem, Organization } from "./SidebarItem"
 import { Accordion } from "@/_shared/ui/Accordion"
 

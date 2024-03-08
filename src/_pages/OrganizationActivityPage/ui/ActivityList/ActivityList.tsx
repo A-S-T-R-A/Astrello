@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
 import { db } from "@/_shared/lib/db"
 import { ActivityItem } from "@/_shared/ui/activity-item"
-import { Skeleton } from "@/_shared/ui/skeleton"
+import { Skeleton } from "@/_shared/ui/Skeleton"
 
 export async function ActivityList() {
     const { orgId } = auth()

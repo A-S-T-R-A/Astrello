@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { CreditCard } from "lucide-react"
 import { useOrganization } from "@clerk/nextjs"
-import { Skeleton } from "@/_shared/ui/skeleton"
+import { Skeleton } from "@/_shared/ui/Skeleton"
 
 interface InfoProps {
     isPro: boolean
