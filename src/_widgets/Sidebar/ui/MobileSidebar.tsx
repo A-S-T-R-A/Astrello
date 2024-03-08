@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import { useMobileSidebar } from "@/_shared/hooks/use-mobile-sidebar"
 import { Button } from "@/_shared/ui/Button"
-import { Sheet, SheetContent } from "@/_shared/ui/sheet"
+import { Sheet, SheetContent } from "@/_shared/ui/Sheet"
 import { Sidebar } from "./Sidebar"
 
 export function MobileSidebar() {

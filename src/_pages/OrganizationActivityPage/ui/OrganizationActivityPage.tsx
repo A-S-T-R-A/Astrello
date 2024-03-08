@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import { Separator } from "@/_shared/ui/separator"
+import { Separator } from "@/_shared/ui/Separator"
 import { checkSubscription } from "@/_shared/lib/subscription"
 import { OrganizationInfoCard } from "@/_entities/Organization"
 import { ActivityList } from "./ActivityList/ActivityList"

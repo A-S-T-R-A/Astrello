@@ -1,5 +1,5 @@
 import { checkSubscription } from "@/_shared/lib/subscription"
-import { Separator } from "@/_shared/ui/separator"
+import { Separator } from "@/_shared/ui/Separator"
 import { OrganizationInfoCard } from "@/_entities/Organization"
 import { SubscriptionButton } from "@/_entities/Stripe"
 
