@@ -1,14 +1,12 @@
-import { db } from "@/_shared/lib/db"
+import { Board } from "@prisma/client"
 import Link from "next/link"
 
 type TBoardCardProps = {
-    id: string
-    title: string
-    imageThumbUrl: string
+    board: Board
 }
 
-export function BoardCard(props: TBoardCardProps) {
-    const { id, imageThumbUrl, title } = props
+export function BoardCard({ board }: TBoardCardProps) {
+    const { id, imageThumbUrl, title } = board
 
     return (
         <Link

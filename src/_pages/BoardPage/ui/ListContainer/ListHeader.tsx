@@ -5,7 +5,7 @@ import { List } from "@prisma/client"
 import { useEventListener } from "usehooks-ts"
 import { useState, useRef, ElementRef } from "react"
 import { useAction } from "@/_shared/hooks/use-action"
-import { ListOptions } from "./list-options"
+import { ListOptions } from "./ListOptions"
 import { updateList } from "@/app/actions/update-list"
 import { FormInput } from "@/_shared/ui/FormInput"
 

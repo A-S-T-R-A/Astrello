@@ -7,11 +7,11 @@ import { Button } from "@/_shared/ui/Button"
 import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "@/_shared/ui/Popover"
 import { deleteBoard } from "@/app/actions/delete-board"
 
-interface BoardOptionsProps {
+interface DeleteBoardProps {
     id: string
 }
 
-export function BoardOptions({ id }: BoardOptionsProps) {
+export function DeleteBoard({ id }: DeleteBoardProps) {
     const { execute, isLoading } = useAction(deleteBoard, {
         onError: error => {
             toast.error(error)

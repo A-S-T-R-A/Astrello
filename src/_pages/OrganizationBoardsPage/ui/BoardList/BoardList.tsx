@@ -37,12 +37,7 @@ export async function BoardList() {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {boards.map(board => (
-                    <BoardCard
-                        key={board.id}
-                        id={board.id}
-                        imageThumbUrl={board.imageThumbUrl}
-                        title={board.title}
-                    />
+                    <BoardCard key={board.id} board={board} />
                 ))}
                 <CreateBoard sideOffset={10} side="bottom">
                     <div

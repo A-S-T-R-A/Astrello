@@ -8,11 +8,11 @@ import { FormInput } from "@/_shared/ui/FormInput"
 import { useAction } from "@/_shared/hooks/use-action"
 import { updateBoard } from "@/app/actions/update-board"
 
-interface BoardTitleFormProps {
+interface BoardTitleProps {
     data: Board
 }
 
-export function BoardTitleForm({ data }: BoardTitleFormProps) {
+export function BoardTitle({ data }: BoardTitleProps) {
     const { execute } = useAction(updateBoard, {
         onSuccess: data => {
             toast.success(`Board "${data.title}" updated!`)

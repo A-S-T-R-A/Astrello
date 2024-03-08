@@ -3,9 +3,9 @@
 import { ElementRef, useRef, useState } from "react"
 import { Draggable, Droppable } from "@hello-pangea/dnd"
 import { cn } from "@/_shared/lib/utils"
-import { CardForm } from "./card-form"
-import { CardItem } from "./card-item"
-import { ListHeader } from "./list-header"
+import { CardForm } from "./CardForm"
+import { CardItem } from "./CardItem"
+import { ListHeader } from "./ListHeader"
 import { ListWithCards } from "@/app/types"
 
 interface ListItemProps {
