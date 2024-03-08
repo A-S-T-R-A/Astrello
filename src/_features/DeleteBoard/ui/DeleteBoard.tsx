@@ -3,7 +3,7 @@
 import { toast } from "sonner"
 import { useAction } from "@/_shared/hooks/use-action"
 import { Button } from "@/_shared/ui/Button"
-import { deleteBoard } from "../models/services/deleteBoard"
+import { deleteBoard } from "../model/services/deleteBoard"
 
 interface DeleteBoardProps {
     id: string

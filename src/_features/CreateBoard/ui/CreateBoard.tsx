@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/_shared
 import { useAction } from "@/_shared/hooks/use-action"
 import { Button } from "@/_shared/ui/Button"
 import { useProModal } from "@/_shared/hooks/use-pro-modal"
-import { createBoard } from "@/app/actions/create-board"
+import { createBoard } from "@/_features/CreateBoard/model/services/createBoard"
 import { BoardImgPicker } from "./BoardImgPicker/BoardImgPicker"
 import { FormInput } from "@/_shared/ui/FormInput"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
