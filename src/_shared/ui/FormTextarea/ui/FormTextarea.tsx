@@ -3,7 +3,7 @@
 import { useFormStatus } from "react-dom"
 import { KeyboardEventHandler, forwardRef } from "react"
 import { cn } from "@/_shared/lib/utils"
-import { Label } from "@/_shared/ui/label"
+import { Label } from "../../Label"
 import { Textarea } from "@/_shared/ui/textarea"
 import { FormErrors } from "../../FormErrors"
 

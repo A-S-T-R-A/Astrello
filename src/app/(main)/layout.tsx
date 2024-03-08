@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { Logo } from "@/_shared/ui/logo"
+import { Logo } from "@/_shared/ui/Logo"
 import { Button } from "@/_shared/ui/Button"
 import Link from "next/link"
 

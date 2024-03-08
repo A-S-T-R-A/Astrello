@@ -3,8 +3,8 @@
 import { forwardRef } from "react"
 import { useFormStatus } from "react-dom"
 import { cn } from "@/_shared/lib/utils"
-import { Label } from "@/_shared/ui/label"
-import { Input } from "@/_shared/ui/input"
+import { Label } from "../../Label"
+import { Input } from "../../Input"
 import { FormErrors } from "../../FormErrors/ui/FormErrors"
 
 interface FormInputProps {
