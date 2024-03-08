@@ -3,7 +3,7 @@ import { checkSubscription } from "@/_shared/lib/subscription"
 import { OrganizationInfoCard } from "@/_entities/Organization"
 import { BoardList } from "./BoardList/BoardList"
 
-export async function BoardsPage() {
+export async function OrganizationBoardsPage() {
     const isPro = await checkSubscription()
 
     return (
