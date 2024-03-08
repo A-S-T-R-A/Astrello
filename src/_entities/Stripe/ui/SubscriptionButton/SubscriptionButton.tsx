@@ -2,9 +2,9 @@
 
 import { toast } from "sonner"
 import { useAction } from "@/_shared/hooks/use-action"
-import { Button } from "@/_shared/ui/button"
 import { useProModal } from "@/_shared/hooks/use-pro-modal"
 import { stripeRedirect } from "@/app/actions/stripe-redirect"
+import { Button } from "@/_shared/ui/Button"
 
 interface SubscriptionButtonProps {
     isPro: boolean

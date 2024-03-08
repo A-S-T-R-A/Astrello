@@ -1,4 +1,4 @@
-import { Button } from "@/_shared/ui/button"
+import { Button } from "@/_shared/ui/Button"
 import localFont from "next/font/local"
 import { Medal } from "lucide-react"
 import Link from "next/link"

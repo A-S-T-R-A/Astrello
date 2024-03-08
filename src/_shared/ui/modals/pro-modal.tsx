@@ -1,8 +1,7 @@
 "use client"
 
 import Image from "next/image"
-
-import { Button } from "@/_shared/ui/button"
+import { Button } from "@/_shared/ui/Button"
 import { useProModal } from "@/_shared/hooks/use-pro-modal"
 import { Dialog, DialogContent } from "@/_shared/ui/dialog"
 import { useAction } from "@/_shared/hooks/use-action"

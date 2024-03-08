@@ -1,7 +1,7 @@
 import { Plus } from "lucide-react"
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
 import { Logo } from "@/_shared/ui/logo"
-import { Button } from "@/_shared/ui/button"
+import { Button } from "@/_shared/ui/Button"
 import { ReactNode } from "react"
 import { CreateBoard } from "@/_features/CreateBoard/ui/CreateBoard"
 
