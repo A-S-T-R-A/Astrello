@@ -8,6 +8,7 @@ const config: Config = {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/_features/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/_entities/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/_widgets/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     prefix: "",
     theme: {
