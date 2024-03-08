@@ -1,18 +1,17 @@
 "use server"
 
 import { auth } from "@clerk/nextjs"
-import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import { db } from "@/_shared/lib/db"
 import { createSafeAction } from "@/_shared/lib/create-safe-action"
-import { DeleteBoard } from "./schema"
-import { InputType, ReturnType } from "./types"
+import { DeleteBoard } from "../types/schema"
+import { InputType, ReturnType } from "../types/types"
 import { createAuditLog } from "@/_shared/lib/create-audit-log"
 import { ACTION, ENTITY_TYPE } from "@prisma/client"
 import { decreaseAvailableCount } from "@/_shared/lib/org-limit"
 import { checkSubscription } from "@/_shared/lib/subscription"
 
-const handler = async (data: InputType): Promise<ReturnType> => {
+async function handler(data: InputType): Promise<ReturnType> {
     const { userId, orgId } = auth()
 
     if (!userId || !orgId) {
@@ -50,7 +49,6 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         }
     }
 
-    // revalidatePath(`/organization/${orgId}`)
     redirect(`/`)
 }
 

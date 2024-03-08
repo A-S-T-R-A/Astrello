@@ -7,7 +7,7 @@ import { Skeleton } from "@/_shared/ui/Skeleton"
 import { MAX_FREE_BOARDS } from "@/_shared/const/boards"
 import { getAvailableCount } from "@/_shared/lib/org-limit"
 import { checkSubscription } from "@/_shared/lib/subscription"
-import { BoardCard } from "@/_entities/Board"
+import { BoardCard } from "@/_entities/board/BoardCard"
 import { CreateBoard } from "@/_features/CreateBoard/ui/CreateBoard"
 
 export async function BoardList() {
