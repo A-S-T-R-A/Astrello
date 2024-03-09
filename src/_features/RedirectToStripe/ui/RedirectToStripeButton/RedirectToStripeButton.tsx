@@ -2,16 +2,16 @@
 
 import { toast } from "sonner"
 import { useAction } from "@/_shared/hooks/use-action"
-import { useProModal } from "@/_shared/hooks/use-pro-modal"
+import { useStripeModal } from "../../lib/useStripeModal"
 import { stripeRedirect } from "@/app/actions/stripe-redirect"
 import { Button } from "@/_shared/ui/Button"
 
-interface SubscriptionButtonProps {
+interface RedirectToStripeButtonProps {
     isPro: boolean
 }
 
-export function SubscriptionButton({ isPro }: SubscriptionButtonProps) {
-    const proModal = useProModal()
+export function RedirectToStripeButton({ isPro }: RedirectToStripeButtonProps) {
+    const proModal = useStripeModal()
 
     const { execute, isLoading } = useAction(stripeRedirect, {
         onSuccess: data => {

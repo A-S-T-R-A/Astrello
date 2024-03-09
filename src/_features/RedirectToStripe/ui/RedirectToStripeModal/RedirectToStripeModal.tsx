@@ -2,14 +2,14 @@
 
 import Image from "next/image"
 import { Button } from "@/_shared/ui/Button"
-import { useProModal } from "@/_shared/hooks/use-pro-modal"
+import { useStripeModal } from "../../lib/useStripeModal"
 import { Dialog, DialogContent } from "@/_shared/ui/Dialog"
 import { useAction } from "@/_shared/hooks/use-action"
 import { toast } from "sonner"
 import { stripeRedirect } from "@/app/actions/stripe-redirect"
 
-export function ProModal() {
-    const proModal = useProModal()
+export function RedirectToStripeModal() {
+    const proModal = useStripeModal()
 
     const { execute, isLoading } = useAction(stripeRedirect, {
         onSuccess: data => {

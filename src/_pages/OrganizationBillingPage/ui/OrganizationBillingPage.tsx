@@ -1,7 +1,7 @@
 import { checkSubscription } from "@/_shared/lib/subscription"
 import { Separator } from "@/_shared/ui/Separator"
 import { OrganizationInfoCard } from "@/_entities/Organization"
-import { SubscriptionButton } from "@/_entities/Stripe"
+import { RedirectToStripeButton } from "@/_features/RedirectToStripe"
 
 export async function OrganizationBillingPage() {
     const isPro = await checkSubscription()
@@ -10,7 +10,7 @@ export async function OrganizationBillingPage() {
         <div className="w-full">
             <OrganizationInfoCard isPro={isPro} />
             <Separator className="my-2" />
-            <SubscriptionButton isPro={isPro} />
+            <RedirectToStripeButton isPro={isPro} />
         </div>
     )
 }

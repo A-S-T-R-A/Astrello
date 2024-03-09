@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation"
 import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/_shared/ui/Popover"
 import { useAction } from "@/_shared/hooks/use-action"
 import { Button } from "@/_shared/ui/Button"
-import { useProModal } from "@/_shared/hooks/use-pro-modal"
 import { createBoard } from "@/_features/CreateBoard/model/services/createBoard"
 import { BoardImgPicker } from "./BoardImgPicker/BoardImgPicker"
 import { FormInput } from "@/_shared/ui/FormInput"
@@ -23,7 +22,6 @@ type TCreateBoardProps = {
 export function CreateBoard(props: TCreateBoardProps) {
     const { children, side = "bottom", align, sideOffset = 0 } = props
 
-    const proModal = useProModal()
     const router = useRouter()
     const closeRef = useRef<ElementRef<"button">>(null)
 
@@ -35,7 +33,6 @@ export function CreateBoard(props: TCreateBoardProps) {
         },
         onError: error => {
             toast.error(error)
-            proModal.onOpen()
         },
     })
 

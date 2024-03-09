@@ -1,12 +1,12 @@
 import { create } from "zustand"
 
-type ProModalStore = {
+type TStripeModalStore = {
     isOpen: boolean
     onOpen: () => void
     onClose: () => void
 }
 
-export const useProModal = create<ProModalStore>(set => ({
+export const useStripeModal = create<TStripeModalStore>(set => ({
     isOpen: false,
     onOpen: () => set({ isOpen: true }),
     onClose: () => set({ isOpen: false }),

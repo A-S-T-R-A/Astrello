@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { CardModal } from "@/_shared/ui/modals/card-modal"
-import { ProModal } from "@/_shared/ui/modals/pro-modal"
+import { RedirectToStripeModal } from "@/_features/RedirectToStripe"
 
 export function ModalProvider() {
     const [isMounted, setIsMounted] = useState(false)
@@ -18,7 +18,7 @@ export function ModalProvider() {
     return (
         <>
             <CardModal />
-            <ProModal />
+            <RedirectToStripeModal />
         </>
     )
 }
