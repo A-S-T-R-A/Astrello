@@ -3,7 +3,7 @@ import { db } from "@/_shared/lib/db"
 
 const DAY_IN_MS = 86_400_000
 
-export const checkSubscription = async () => {
+export async function checkSubscription() {
     const { orgId } = auth()
 
     if (!orgId) {

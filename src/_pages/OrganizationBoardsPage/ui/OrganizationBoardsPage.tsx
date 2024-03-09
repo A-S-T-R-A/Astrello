@@ -1,5 +1,5 @@
 import { Separator } from "@/_shared/ui/Separator"
-import { checkSubscription } from "@/_entities/User/model/services/checkSubscription"
+import { checkSubscription } from "@/_entities/User"
 import { OrganizationInfoCard } from "@/_entities/Organization"
 import { BoardList } from "./BoardList/BoardList"
 

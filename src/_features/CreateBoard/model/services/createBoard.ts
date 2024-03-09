@@ -8,8 +8,9 @@ import { InputType, ReturnType } from "../types/types"
 import { CreateBoard } from "../types/schema"
 import { createAuditLog } from "@/_shared/lib/create-audit-log"
 import { ACTION, ENTITY_TYPE } from "@prisma/client"
-import { incrementAvailableCount, hasAvailableCount } from "@/_shared/lib/org-limit"
-import { checkSubscription } from "@/_entities/User/model/services/checkSubscription"
+import { hasAvailableCount } from "./hasAvailableCount"
+import { checkSubscription } from "@/_entities/User"
+import { incrementAvailableCount } from "./incrementAvailableCount"
 
 const handler = async (data: InputType): Promise<ReturnType> => {
     const { userId, orgId } = auth()

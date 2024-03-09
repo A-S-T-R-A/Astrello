@@ -1,7 +1,7 @@
 "use client"
 
 import { toast } from "sonner"
-import { useAction } from "@/_shared/hooks/use-action"
+import { useAction } from "@/_shared/hooks/useAction"
 import { useStripeModal } from "../../lib/useStripeModal"
 import { stripeRedirect } from "@/app/actions/stripe-redirect"
 import { Button } from "@/_shared/ui/Button"

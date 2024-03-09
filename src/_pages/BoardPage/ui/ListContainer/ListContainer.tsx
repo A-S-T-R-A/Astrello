@@ -3,7 +3,7 @@
 import { toast } from "sonner"
 import { useEffect, useState } from "react"
 import { DragDropContext, Droppable } from "@hello-pangea/dnd"
-import { useAction } from "@/_shared/hooks/use-action"
+import { useAction } from "@/_shared/hooks/useAction"
 import { ListForm } from "./ListForm"
 import { ListItem } from "./ListItem"
 import { updateListOrder } from "@/app/actions/update-list-order"

@@ -3,7 +3,7 @@
 import { toast } from "sonner"
 import { Copy, Trash } from "lucide-react"
 import { useParams } from "next/navigation"
-import { useAction } from "@/_shared/hooks/use-action"
+import { useAction } from "@/_shared/hooks/useAction"
 import { Button } from "@/_shared/ui/Button"
 import { Skeleton } from "@/_shared/ui/Skeleton"
 import { useCardModal } from "@/_shared/hooks/use-card-modal"

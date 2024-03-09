@@ -8,8 +8,8 @@ import { DeleteBoard } from "../types/schema"
 import { InputType, ReturnType } from "../types/types"
 import { createAuditLog } from "@/_shared/lib/create-audit-log"
 import { ACTION, ENTITY_TYPE } from "@prisma/client"
-import { decreaseAvailableCount } from "@/_shared/lib/org-limit"
-import { checkSubscription } from "@/_entities/User/model/services/checkSubscription"
+import { checkSubscription } from "@/_entities/User"
+import { decreaseAvailableCount } from "./decreaseAvailableCount"
 
 async function handler(data: InputType): Promise<ReturnType> {
     const { userId, orgId } = auth()

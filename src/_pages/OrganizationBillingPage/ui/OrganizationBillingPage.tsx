@@ -1,4 +1,4 @@
-import { checkSubscription } from "@/_entities/User/model/services/checkSubscription"
+import { checkSubscription } from "@/_entities/User"
 import { Separator } from "@/_shared/ui/Separator"
 import { OrganizationInfoCard } from "@/_entities/Organization"
 import { RedirectToStripeButton } from "@/_features/RedirectToStripe"
