@@ -4,7 +4,7 @@ import { toast } from "sonner"
 import { useEventListener } from "usehooks-ts"
 import { useState, useRef, ElementRef } from "react"
 import { useAction } from "@/_shared/hooks/useAction"
-import { updateList } from "@/app/actions/update-list"
+import { updateList } from "../model/services/updateList"
 import { FormInput } from "@/_shared/ui/FormInput"
 import { List } from "@prisma/client"
 
