@@ -3,7 +3,7 @@
 import { toast } from "sonner"
 import { List } from "@prisma/client"
 import { useAction } from "@/_shared/hooks/useAction"
-import { deleteList } from "@/app/actions/delete-list"
+import { deleteList } from "../model/services/deleteList"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
 type TDeleteListProps = {
