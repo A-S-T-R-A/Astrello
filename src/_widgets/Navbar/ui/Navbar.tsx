@@ -3,7 +3,7 @@ import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
 import { Logo } from "@/_shared/ui/Logo"
 import { Button } from "@/_shared/ui/Button"
 import { ReactNode } from "react"
-import { CreateBoard } from "@/_features/CreateBoard/ui/CreateBoard"
+import { CreateBoard } from "@/_features/boardActions/CreateBoard/ui/CreateBoard"
 
 type TNavbarProps = {
     slot?: ReactNode

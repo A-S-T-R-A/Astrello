@@ -4,12 +4,12 @@ import { Card } from "@prisma/client"
 import { Draggable } from "@hello-pangea/dnd"
 import { useCardModal } from "@/_shared/hooks/use-card-modal"
 
-interface CardItemProps {
+type TSmallCardProps = {
     data: Card
     index: number
 }
 
-export function CardItem({ data, index }: CardItemProps) {
+export function SmallCard({ data, index }: TSmallCardProps) {
     const cardModal = useCardModal()
 
     return (

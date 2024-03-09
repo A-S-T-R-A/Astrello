@@ -8,17 +8,17 @@ import { useOnClickOutside, useEventListener } from "usehooks-ts"
 import { useAction } from "@/_shared/hooks/useAction"
 import { Button } from "@/_shared/ui/Button"
 import { FormTextarea } from "@/_shared/ui/FormTextarea"
-import { createCard } from "@/app/actions/create-card"
+import { createCard } from "../model/services/createCard"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
-interface CardFormProps {
+type TCreateCardProps = {
     listId: string
     enableEditing: () => void
     disableEditing: () => void
     isEditing: boolean
 }
 
-export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
+export const CreateCard = forwardRef<HTMLTextAreaElement, TCreateCardProps>(
     ({ listId, enableEditing, disableEditing, isEditing }, ref) => {
         const params = useParams()
         const formRef = useRef<ElementRef<"form">>(null)
@@ -94,4 +94,4 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
     }
 )
 
-CardForm.displayName = "CardForm"
+CreateCard.displayName = "CreateCard"

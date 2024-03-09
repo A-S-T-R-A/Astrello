@@ -9,7 +9,7 @@ import { cn } from "@/_shared/lib/utils"
 import { unsplash } from "@/_shared/lib/unsplash"
 import { defaultImages } from "@/_shared/const/images"
 import { toast } from "sonner"
-import { FormErrors } from "../../../../_shared/ui/FormErrors/ui/FormErrors"
+import { FormErrors } from "../../../../../_shared/ui/FormErrors/ui/FormErrors"
 
 interface BoardImgPickerProps {
     id: string

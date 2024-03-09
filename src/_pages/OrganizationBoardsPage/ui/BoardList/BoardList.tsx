@@ -8,7 +8,7 @@ import { MAX_FREE_BOARDS } from "@/_shared/const/boards"
 import { getAvailableCount } from "../../model/services/getAvailableCount"
 import { checkSubscription } from "@/_entities/User"
 import { BoardCard } from "@/_entities/board/BoardCard"
-import { CreateBoard } from "@/_features/CreateBoard/ui/CreateBoard"
+import { CreateBoard } from "@/_features/boardActions/CreateBoard/ui/CreateBoard"
 
 export async function BoardList() {
     const { orgId } = auth()

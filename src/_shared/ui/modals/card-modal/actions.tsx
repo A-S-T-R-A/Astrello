@@ -8,7 +8,7 @@ import { Button } from "@/_shared/ui/Button"
 import { Skeleton } from "@/_shared/ui/Skeleton"
 import { useCardModal } from "@/_shared/hooks/use-card-modal"
 import { copyCard } from "@/app/actions/copy-card"
-import { deleteCard } from "@/app/actions/delete-card"
+import { deleteCard } from "@/_features/cardActions/DeleteCard/model/services/deleteCard"
 import { CardWithList } from "@/app/types"
 
 interface ActionsProps {

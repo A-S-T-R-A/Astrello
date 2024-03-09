@@ -3,10 +3,10 @@
 import { ElementRef, useRef, useState } from "react"
 import { Draggable, Droppable } from "@hello-pangea/dnd"
 import { cn } from "@/_shared/lib/utils"
-import { CardForm } from "./CardForm"
-import { CardItem } from "./CardItem"
 import { ListHeader } from "./ListHeader"
 import { ListWithCards } from "@/app/types"
+import { SmallCard } from "@/_entities/card/SmallCard"
+import { CreateCard } from "@/_features/cardActions/CreateCard"
 
 interface ListItemProps {
     data: ListWithCards
@@ -53,13 +53,13 @@ export function ListItem({ data, index }: ListItemProps) {
                                     )}
                                 >
                                     {data.cards.map((card, index) => (
-                                        <CardItem index={index} key={card.id} data={card} />
+                                        <SmallCard index={index} key={card.id} data={card} />
                                     ))}
                                     {provided.placeholder}
                                 </ol>
                             )}
                         </Droppable>
-                        <CardForm
+                        <CreateCard
                             listId={data.id}
                             ref={textareaRef}
                             isEditing={isEditing}

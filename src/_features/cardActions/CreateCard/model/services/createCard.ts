@@ -6,8 +6,8 @@ import { ACTION, ENTITY_TYPE } from "@prisma/client"
 import { db } from "@/_shared/lib/db"
 import { createAuditLog } from "@/_shared/lib/create-audit-log"
 import { createSafeAction } from "@/_shared/lib/create-safe-action"
-import { CreateCard } from "./schema"
-import { InputType, ReturnType } from "./types"
+import { CreateCard } from "../types/schema"
+import { InputType, ReturnType } from "../types/types"
 
 const handler = async (data: InputType): Promise<ReturnType> => {
     const { userId, orgId } = auth()

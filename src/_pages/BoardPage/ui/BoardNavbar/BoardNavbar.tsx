@@ -1,7 +1,7 @@
 import { Board } from "@prisma/client"
-import { DeleteBoard } from "@/_features/DeleteBoard"
+import { DeleteBoard } from "@/_features/boardActions/DeleteBoard"
 import { BoardActions } from "@/_entities/board/BoardActions"
-import { UpdateBoard } from "@/_features/UpdateBoard"
+import { UpdateBoard } from "@/_features/boardActions/UpdateBoard"
 
 interface BoardNavbarProps {
     data: Board
