@@ -1,6 +1,6 @@
 import { Suspense } from "react"
 import { Separator } from "@/_shared/ui/Separator"
-import { checkSubscription } from "@/_shared/lib/subscription"
+import { checkSubscription } from "@/_entities/User/model/services/checkSubscription"
 import { OrganizationInfoCard } from "@/_entities/Organization"
 import { ActivityList } from "./ActivityList/ActivityList"
 

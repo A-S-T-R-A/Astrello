@@ -6,7 +6,7 @@ import { Hint } from "@/_shared/ui/Hint"
 import { Skeleton } from "@/_shared/ui/Skeleton"
 import { MAX_FREE_BOARDS } from "@/_shared/const/boards"
 import { getAvailableCount } from "@/_shared/lib/org-limit"
-import { checkSubscription } from "@/_shared/lib/subscription"
+import { checkSubscription } from "@/_entities/User/model/services/checkSubscription"
 import { BoardCard } from "@/_entities/board/BoardCard"
 import { CreateBoard } from "@/_features/CreateBoard/ui/CreateBoard"
 
