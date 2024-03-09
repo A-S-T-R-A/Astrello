@@ -2,7 +2,7 @@
 
 import { Card } from "@prisma/client"
 import { Draggable } from "@hello-pangea/dnd"
-import { useCardModal } from "@/_shared/hooks/use-card-modal"
+import { useCardModal } from "@/_entities/card/CardModal/lib/useCardModal"
 
 type TSmallCardProps = {
     data: Card

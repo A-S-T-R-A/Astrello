@@ -5,7 +5,7 @@ import { Copy, Trash } from "lucide-react"
 import { useParams } from "next/navigation"
 import { useAction } from "@/_shared/hooks/useAction"
 import { Button } from "@/_shared/ui/Button"
-import { useCardModal } from "@/_shared/hooks/use-card-modal"
+import { useCardModal } from "@/_entities/card/CardModal/lib/useCardModal"
 import { deleteCard } from "../model/services/deleteCard"
 import { CardWithList } from "@/app/types"
 

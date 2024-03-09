@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { CardModal } from "@/_shared/ui/modals/card-modal"
 import { RedirectToStripeModal } from "@/_features/RedirectToStripe"
 
 export function ModalProvider() {
@@ -17,7 +16,6 @@ export function ModalProvider() {
 
     return (
         <>
-            <CardModal />
             <RedirectToStripeModal />
         </>
     )
