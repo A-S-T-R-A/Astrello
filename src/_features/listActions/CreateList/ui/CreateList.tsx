@@ -7,12 +7,11 @@ import { useState, useRef, ElementRef } from "react"
 import { useEventListener, useOnClickOutside } from "usehooks-ts"
 import { useAction } from "@/_shared/hooks/useAction"
 import { Button } from "@/_shared/ui/Button"
-import { ListWrapper } from "./ListWrapper"
-import { createList } from "@/app/actions/create-list"
+import { createList } from "../model/services/createList"
 import { FormInput } from "@/_shared/ui/FormInput"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
-export function ListForm() {
+export function CreateList() {
     const router = useRouter()
     const params = useParams()
 
@@ -64,7 +63,7 @@ export function ListForm() {
 
     if (isEditing) {
         return (
-            <ListWrapper>
+            <li className="shrink-0 h-full w-[272px] select-none">
                 <form
                     action={onSubmit}
                     ref={formRef}
@@ -85,12 +84,12 @@ export function ListForm() {
                         </Button>
                     </div>
                 </form>
-            </ListWrapper>
+            </li>
         )
     }
 
     return (
-        <ListWrapper>
+        <li className="shrink-0 h-full w-[272px] select-none">
             <button
                 onClick={enableEditing}
                 className="w-full rounded-md bg-white/80 hover:bg-white/50 transition p-3 flex items-center font-medium text-sm"
@@ -98,6 +97,6 @@ export function ListForm() {
                 <Plus className="h-4 w-4 mr-2" />
                 Add a list
             </button>
-        </ListWrapper>
+        </li>
     )
 }

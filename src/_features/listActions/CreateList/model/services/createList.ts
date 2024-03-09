@@ -2,12 +2,10 @@
 
 import { auth } from "@clerk/nextjs"
 import { revalidatePath } from "next/cache"
-
 import { db } from "@/_shared/lib/db"
 import { createSafeAction } from "@/_shared/lib/create-safe-action"
-
-import { CreateList } from "./schema"
-import { InputType, ReturnType } from "./types"
+import { CreateList } from "../types/schema"
+import { InputType, ReturnType } from "../types/types"
 import { createAuditLog } from "@/_shared/lib/create-audit-log"
 import { ACTION, ENTITY_TYPE } from "@prisma/client"
 

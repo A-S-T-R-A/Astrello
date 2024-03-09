@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
 import { db } from "@/_shared/lib/db"
-import { ActivityItem } from "@/_shared/ui/activity-item"
+import { ActivityItem } from "@/_entities/card/CardModal/ui/ActivityList/ActivityItem"
 import { Skeleton } from "@/_shared/ui/Skeleton"
 
 export async function ActivityList() {

@@ -1,17 +1,7 @@
 import { auth } from "@clerk/nextjs"
 import { notFound, redirect } from "next/navigation"
-import { db } from "@/_shared/lib/db"
 import { BoardNavbar } from "./BoardNavbar/BoardNavbar"
 import { ListContainer } from "./ListContainer/ListContainer"
-import { CardModal } from "@/_entities/card/CardModal/ui/CardModal"
-import { useQuery } from "@tanstack/react-query"
-import { CardWithList } from "@/app/types"
-import { useCardModal } from "@/_entities/card/CardModal/lib/useCardModal"
-import { fetcher } from "@/_shared/lib/fetcher"
-import { UpdateCard } from "@/_features/cardActions/UpdateCard"
-import { CopyCard } from "@/_features/cardActions/CopyCard"
-import { DeleteCard } from "@/_features/cardActions/DeleteCard"
-import { AddCardDescription } from "@/_features/cardActions/AddCardDescription"
 import { getBoardCards } from "../model/services/getBoardCards"
 import { getBoardLists } from "../model/services/getBoardLists"
 
@@ -48,16 +38,6 @@ export async function BoardPage({ boardId }: BoardPageProps) {
                     </div>
                 </main>
             </div>
-            {/* {cardData && (
-                <CardModal
-                    header={<UpdateCard data={cardData} />}
-                    actions={[
-                        <CopyCard data={cardData} key="copy-card-action" />,
-                        <DeleteCard data={cardData} key="copy-card-action" />,
-                    ]}
-                    description={<AddCardDescription data={cardData} />}
-                />
-            )} */}
         </>
     )
 }

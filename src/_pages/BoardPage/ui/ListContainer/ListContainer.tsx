@@ -4,11 +4,19 @@ import { toast } from "sonner"
 import { useEffect, useState } from "react"
 import { DragDropContext, Droppable } from "@hello-pangea/dnd"
 import { useAction } from "@/_shared/hooks/useAction"
-import { ListForm } from "./ListForm"
 import { ListItem } from "./ListItem"
 import { updateListOrder } from "@/app/actions/update-list-order"
 import { updateCardOrder } from "@/app/actions/update-card-order"
 import { ListWithCards } from "@/app/types"
+import { CardModal, useCardModal } from "@/_entities/card/CardModal"
+import { useQuery } from "@tanstack/react-query"
+import { CardWithList } from "@/app/types"
+import { fetcher } from "@/_shared/lib/fetcher"
+import { UpdateCard } from "@/_features/cardActions/UpdateCard"
+import { CopyCard } from "@/_features/cardActions/CopyCard"
+import { DeleteCard } from "@/_features/cardActions/DeleteCard"
+import { AddCardDescription } from "@/_features/cardActions/AddCardDescription"
+import { CreateList } from "@/_features/listActions/CreateList"
 
 interface ListContainerProps {
     data: ListWithCards[]
@@ -124,24 +132,43 @@ export function ListContainer({ data, boardId }: ListContainerProps) {
         }
     }
 
+    const { id } = useCardModal()
+
+    const { data: cardData } = useQuery<CardWithList>({
+        queryKey: ["card", id],
+        queryFn: () => fetcher(`/api/cards/${id}`),
+    })
+
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="lists" type="list" direction="horizontal">
-                {provided => (
-                    <ol
-                        {...provided.droppableProps}
-                        ref={provided.innerRef}
-                        className="flex gap-x-3 h-full"
-                    >
-                        {orderedData.map((list, index) => {
-                            return <ListItem key={list.id} index={index} data={list} />
-                        })}
-                        {provided.placeholder}
-                        <ListForm />
-                        <div className="flex-shrink-0 w-1" />
-                    </ol>
-                )}
-            </Droppable>
-        </DragDropContext>
+        <>
+            <DragDropContext onDragEnd={onDragEnd}>
+                <Droppable droppableId="lists" type="list" direction="horizontal">
+                    {provided => (
+                        <ol
+                            {...provided.droppableProps}
+                            ref={provided.innerRef}
+                            className="flex gap-x-3 h-full"
+                        >
+                            {orderedData.map((list, index) => {
+                                return <ListItem key={list.id} index={index} data={list} />
+                            })}
+                            {provided.placeholder}
+                            <CreateList />
+                            <div className="flex-shrink-0 w-1" />
+                        </ol>
+                    )}
+                </Droppable>
+            </DragDropContext>
+            {cardData && (
+                <CardModal
+                    header={<UpdateCard data={cardData} />}
+                    actions={[
+                        <CopyCard data={cardData} key="copy-card-action" />,
+                        <DeleteCard data={cardData} key="copy-card-action" />,
+                    ]}
+                    description={<AddCardDescription data={cardData} />}
+                />
+            )}
+        </>
     )
 }

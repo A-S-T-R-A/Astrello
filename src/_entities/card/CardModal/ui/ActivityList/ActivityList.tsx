@@ -3,7 +3,7 @@
 import { AuditLog } from "@prisma/client"
 import { ActivityIcon } from "lucide-react"
 import { Skeleton } from "@/_shared/ui/Skeleton"
-import { ActivityItem } from "@/_shared/ui/activity-item"
+import { ActivityItem } from "@/_entities/card/CardModal/ui/ActivityList/ActivityItem"
 
 interface ActivityProps {
     items: AuditLog[]

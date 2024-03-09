@@ -4,11 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 import { fetcher } from "@/_shared/lib/fetcher"
 import { AuditLog } from "@prisma/client"
 import { useCardModal } from "@/_entities/card/CardModal/lib/useCardModal"
-// import { Header } from "./card-modal/header"
-import { Description } from "./card-modal/description"
-import { Actions } from "./card-modal/actions"
-import { Activity } from "./card-modal/activity"
-import { CardWithList } from "@/app/types"
+import { Activity } from "./ActivityList/ActivityList"
 import { Modal } from "@/_shared/ui/Modal"
 import { ReactNode } from "react"
 
@@ -30,12 +26,10 @@ export function CardModal(props: TCardModal) {
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             {header}
-            {/* {!cardData ? <Header.Skeleton /> : <Header data={cardData} />} */}
             <div className="grid grid-cols-1 md:grid-cols-4 md:gap-4">
                 <div className="col-span-3">
                     <div className="w-full space-y-6">
                         {description}
-                        {/* {!cardData ? <Description.Skeleton /> : <Description data={cardData} />} */}
                         {!auditLogsData ? (
                             <Activity.Skeleton />
                         ) : (
