@@ -5,7 +5,7 @@ import { Button } from "@/_shared/ui/Button"
 import { useStripeModal } from "../../lib/useStripeModal"
 import { useAction } from "@/_shared/hooks/useAction"
 import { toast } from "sonner"
-import { stripeRedirect } from "@/app/actions/stripe-redirect"
+import { stripeRedirect } from "../../model/services/redirectToStripe"
 import { Modal } from "@/_shared/ui/Modal"
 
 export function RedirectToStripeModal() {

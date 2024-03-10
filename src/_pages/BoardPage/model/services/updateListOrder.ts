@@ -6,8 +6,8 @@ import { revalidatePath } from "next/cache"
 import { db } from "@/_shared/lib/db"
 import { createSafeAction } from "@/_shared/lib/create-safe-action"
 
-import { UpdateListOrder } from "./schema"
-import { InputType, ReturnType } from "./types"
+import { UpdateListOrder } from "../types/updateListOrderSchema"
+import { InputType, ReturnType } from "../types/updateListOrderTypes"
 
 const handler = async (data: InputType): Promise<ReturnType> => {
     const { userId, orgId } = auth()

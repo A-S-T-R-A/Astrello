@@ -3,7 +3,7 @@ import { List } from "@prisma/client"
 
 import { ActionState } from "@/_shared/lib/create-safe-action"
 
-import { UpdateListOrder } from "./schema"
+import { UpdateListOrder } from "./updateListOrderSchema"
 
 export type InputType = z.infer<typeof UpdateListOrder>
 export type ReturnType = ActionState<InputType, List[]>

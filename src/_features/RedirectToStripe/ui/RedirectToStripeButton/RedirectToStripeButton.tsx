@@ -3,7 +3,7 @@
 import { toast } from "sonner"
 import { useAction } from "@/_shared/hooks/useAction"
 import { useStripeModal } from "../../lib/useStripeModal"
-import { stripeRedirect } from "@/app/actions/stripe-redirect"
+import { stripeRedirect } from "../../model/services/redirectToStripe"
 import { Button } from "@/_shared/ui/Button"
 
 interface RedirectToStripeButtonProps {
