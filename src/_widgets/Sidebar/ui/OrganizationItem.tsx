@@ -2,19 +2,12 @@
 
 import { useRouter, usePathname } from "next/navigation"
 import Image from "next/image"
-import { cn } from "@/_shared/lib/utils"
+import { cn } from "@/_shared/lib/cn"
 import { AccordionContent, AccordionItem, AccordionTrigger } from "@/_shared/ui/Accordion"
 import { Button } from "@/_shared/ui/Button"
 import { Skeleton } from "@/_shared/ui/Skeleton"
 import { routes } from "../const/routes"
-
-// should be in the model
-export type Organization = {
-    id: string
-    slug: string
-    imageUrl: string
-    name: string
-}
+import { Organization } from "../model/types/types"
 
 interface NavItemProps {
     isExpanded: boolean
@@ -23,7 +16,7 @@ interface NavItemProps {
     onExpand: (id: string) => void
 }
 
-export function SidebarItemItem({ isExpanded, isActive, organization, onExpand }: NavItemProps) {
+export function OrganizationItem({ isExpanded, isActive, organization, onExpand }: NavItemProps) {
     const router = useRouter()
     const pathname = usePathname()
 
@@ -79,8 +72,7 @@ export function SidebarItemItem({ isExpanded, isActive, organization, onExpand }
     )
 }
 
-// naming
-SidebarItemItem.Skeleton = function SkeletonNavItem() {
+OrganizationItem.Skeleton = function SkeletonNavItem() {
     return (
         <div className="flex items-center gap-x-2">
             <div className="w-10 h-10 relative shrink-0">

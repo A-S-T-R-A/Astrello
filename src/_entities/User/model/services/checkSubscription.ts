@@ -1,8 +1,6 @@
 import { auth } from "@clerk/nextjs"
-import { db } from "@/_shared/lib/db"
-
-//const
-const DAY_IN_MS = 86_400_000
+import { db } from "@/_shared/config/db"
+import { DAY_IN_MS } from "../../const/const"
 
 export async function checkSubscription() {
     const { orgId } = auth()

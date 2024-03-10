@@ -1,13 +1,12 @@
 "use client"
 
-import Link from "next/link"
-import { Plus } from "lucide-react"
 import { useLocalStorage } from "usehooks-ts"
 import { useOrganization, useOrganizationList } from "@clerk/nextjs"
-import { Button } from "@/_shared/ui/Button"
 import { Skeleton } from "@/_shared/ui/Skeleton"
-import { SidebarItemItem, Organization } from "./SidebarItem"
+import { OrganizationItem } from "./OrganizationItem"
 import { Accordion } from "@/_shared/ui/Accordion"
+import { Organization } from "../model/types/types"
+import { WorkspacesItem } from "./WorkspacesItem"
 
 interface SidebarProps {
     storageKey?: string
@@ -49,9 +48,9 @@ export function Sidebar({ storageKey = "t-sidebar-state" }: SidebarProps) {
                     <Skeleton className="h-10 w-10" />
                 </div>
                 <div className="space-y-2">
-                    <SidebarItemItem.Skeleton />
-                    <SidebarItemItem.Skeleton />
-                    <SidebarItemItem.Skeleton />
+                    <OrganizationItem.Skeleton />
+                    <OrganizationItem.Skeleton />
+                    <OrganizationItem.Skeleton />
                 </div>
             </>
         )
@@ -59,20 +58,10 @@ export function Sidebar({ storageKey = "t-sidebar-state" }: SidebarProps) {
 
     return (
         <>
-            {/* should be separate as WorkspacesItem */}
-            <div className="font-medium text-xs flex items-center mb-1">
-                <span className="pl-4">Workspaces</span>
-                <Button asChild type="button" size="icon" variant="ghost" className="ml-auto">
-                    <Link href="/select-org">
-                        <Plus className="h-4 w-4" />
-                    </Link>
-                </Button>
-            </div>
-
-            {/* should be separate as OrganizationItem */}
+            <WorkspacesItem />
             <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
                 {userMemberships.data.map(({ organization }) => (
-                    <SidebarItemItem
+                    <OrganizationItem
                         key={organization.id}
                         isActive={activeOrganization?.id === organization.id}
                         isExpanded={expanded[organization.id]}

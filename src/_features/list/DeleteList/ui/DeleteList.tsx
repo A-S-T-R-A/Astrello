@@ -2,7 +2,7 @@
 
 import { toast } from "sonner"
 import { List } from "@prisma/client"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { deleteList } from "../model/services/deleteList"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
@@ -12,7 +12,7 @@ type TDeleteListProps = {
 }
 
 export function DeleteList({ data, onSuccess }: TDeleteListProps) {
-    const { execute: executeDelete } = useAction(deleteList, {
+    const { execute: executeDelete } = useDatabase(deleteList, {
         onSuccess: data => {
             toast.success(`List "${data.title}" deleted`)
             onSuccess()

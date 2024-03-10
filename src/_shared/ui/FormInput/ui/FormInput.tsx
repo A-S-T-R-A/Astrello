@@ -2,7 +2,7 @@
 
 import { forwardRef } from "react"
 import { useFormStatus } from "react-dom"
-import { cn } from "@/_shared/lib/utils"
+import { cn } from "@/_shared/lib/cn"
 import { Label } from "../../Label"
 import { Input } from "../../Input"
 import { FormErrors } from "../../FormErrors/ui/FormErrors"

@@ -2,7 +2,7 @@ import { Button } from "@/_shared/ui/Button"
 import localFont from "next/font/local"
 import { Medal } from "lucide-react"
 import Link from "next/link"
-import { cn } from "@/_shared/lib/utils"
+import { cn } from "@/_shared/lib/cn"
 import { Poppins } from "next/font/google"
 
 const headingFont = localFont({

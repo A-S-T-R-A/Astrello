@@ -1,7 +1,7 @@
 import { z } from "zod"
 import { List } from "@prisma/client"
 
-import { ActionState } from "@/_shared/lib/create-safe-action"
+import { ActionState } from "@/_shared/lib/createSafeAction"
 
 import { DeleteList } from "./schema"
 

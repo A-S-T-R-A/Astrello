@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { ActionState } from "@/_shared/lib/create-safe-action"
+import { ActionState } from "@/_shared/lib/createSafeAction"
 import { StripeRedirect } from "./schema"
 
 export type InputType = z.infer<typeof StripeRedirect>

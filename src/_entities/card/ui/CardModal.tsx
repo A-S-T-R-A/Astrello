@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { fetcher } from "@/_shared/lib/fetcher"
 import { AuditLog } from "@prisma/client"
-import { useCardModal } from "@/_entities/card/lib/useCardModal"
+import { useCardModal } from "@/_entities/Card/lib/useCardModal"
 import { Activity } from "./ActivityList/ActivityList"
 import { Modal } from "@/_shared/ui/Modal"
 import { ReactNode } from "react"

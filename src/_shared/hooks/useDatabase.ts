@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react"
-import { ActionState, FieldErrors } from "@/_shared/lib/create-safe-action"
+import { ActionState, FieldErrors } from "@/_shared/lib/createSafeAction"
 
 type TAction<TInput, TOutput> = (data: TInput) => Promise<ActionState<TInput, TOutput>>
 
@@ -9,8 +9,7 @@ type TUseActionOptions<TOutput> = {
     onComplete?: () => void
 }
 
-//useDatabase
-export function useAction<TInput, TOutput>(
+export function useDatabase<TInput, TOutput>(
     action: TAction<TInput, TOutput>,
     options: TUseActionOptions<TOutput> = {}
 ) {

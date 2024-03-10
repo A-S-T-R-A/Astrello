@@ -1,13 +1,13 @@
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
 import { HelpCircle, User2 } from "lucide-react"
-import { db } from "@/_shared/lib/db"
+import { db } from "@/_shared/config/db"
 import { Hint } from "@/_shared/ui/Hint"
 import { Skeleton } from "@/_shared/ui/Skeleton"
 import { MAX_FREE_BOARDS } from "@/_shared/const/boards"
 import { getAvailableCount } from "../../model/services/getAvailableCount"
 import { checkSubscription } from "@/_entities/User"
-import { BoardCard } from "@/_entities/board"
+import { BoardCard } from "@/_entities/Board"
 import { CreateBoard } from "@/_features/board/CreateBoard/ui/CreateBoard"
 
 export async function BoardList() {

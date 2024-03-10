@@ -1,7 +1,7 @@
 "use client"
 
 import { useFormStatus } from "react-dom"
-import { cn } from "@/_shared/lib/utils"
+import { cn } from "@/_shared/lib/cn"
 import { Button } from "@/_shared/ui/Button"
 
 interface FormSubmitProps {

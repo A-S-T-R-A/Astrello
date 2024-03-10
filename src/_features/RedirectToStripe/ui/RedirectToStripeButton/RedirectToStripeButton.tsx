@@ -1,7 +1,7 @@
 "use client"
 
 import { toast } from "sonner"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { useStripeModal } from "../../lib/useStripeModal"
 import { stripeRedirect } from "../../model/services/redirectToStripe"
 import { Button } from "@/_shared/ui/Button"
@@ -13,7 +13,7 @@ interface RedirectToStripeButtonProps {
 export function RedirectToStripeButton({ isPro }: RedirectToStripeButtonProps) {
     const proModal = useStripeModal()
 
-    const { execute, isLoading } = useAction(stripeRedirect, {
+    const { execute, isLoading } = useDatabase(stripeRedirect, {
         onSuccess: data => {
             window.location.href = data as string
         },

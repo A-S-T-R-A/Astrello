@@ -3,8 +3,8 @@
 import { auth } from "@clerk/nextjs"
 import { revalidatePath } from "next/cache"
 
-import { db } from "@/_shared/lib/db"
-import { createSafeAction } from "@/_shared/lib/create-safe-action"
+import { db } from "@/_shared/config/db"
+import { createSafeAction } from "@/_shared/lib/createSafeAction"
 
 import { UpdateListOrder } from "../types/updateListOrderSchema"
 import { InputType, ReturnType } from "../types/updateListOrderTypes"

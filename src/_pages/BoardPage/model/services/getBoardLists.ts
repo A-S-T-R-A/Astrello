@@ -1,4 +1,4 @@
-import { db } from "@/_shared/lib/db"
+import { db } from "@/_shared/config/db"
 
 type TGetBoardLists = {
     boardId: string

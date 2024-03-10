@@ -3,12 +3,12 @@
 import { auth } from "@clerk/nextjs"
 import { revalidatePath } from "next/cache"
 
-import { db } from "@/_shared/lib/db"
-import { createSafeAction } from "@/_shared/lib/create-safe-action"
+import { db } from "@/_shared/config/db"
+import { createSafeAction } from "@/_shared/lib/createSafeAction"
 
 import { UpdateList } from "../types/schema"
 import { InputType, ReturnType } from "../types/types"
-import { createAuditLog } from "@/_shared/lib/create-audit-log"
+import { createAuditLog } from "@/_shared/lib/createAuditLog"
 import { ACTION, ENTITY_TYPE } from "@prisma/client"
 
 const handler = async (data: InputType): Promise<ReturnType> => {

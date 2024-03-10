@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { toast } from "sonner"
 import { DragDropContext, Droppable } from "@hello-pangea/dnd"
-import { ListWithCards, CardWithList } from "@/app/types"
-import { CardModal, useCardModal } from "@/_entities/card/CardModal"
-import { useAction } from "@/_shared/hooks/useAction"
+import { ListWithCards, CardWithList } from "@/app/types/types"
+import { CardModal, useCardModal } from "@/_entities/Card"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { ListItem } from "./ListItem"
 import { updateListOrder } from "../../model/services/updateListOrder"
 import { updateCardOrder } from "../../model/services/updateCardOrder"
@@ -33,7 +33,7 @@ function reorder<T>(list: T[], startIndex: number, endIndex: number) {
 export function ListContainer({ data, boardId }: ListContainerProps) {
     const [orderedData, setOrderedData] = useState(data)
 
-    const { execute: executeUpdateListOrder } = useAction(updateListOrder, {
+    const { execute: executeUpdateListOrder } = useDatabase(updateListOrder, {
         onSuccess: () => {
             toast.success("List reordered")
         },
@@ -42,7 +42,7 @@ export function ListContainer({ data, boardId }: ListContainerProps) {
         },
     })
 
-    const { execute: executeUpdateCardOrder } = useAction(updateCardOrder, {
+    const { execute: executeUpdateCardOrder } = useDatabase(updateCardOrder, {
         onSuccess: () => {
             toast.success("Card reordered")
         },

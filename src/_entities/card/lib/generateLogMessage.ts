@@ -1,6 +1,5 @@
 import { ACTION, AuditLog } from "@prisma/client"
 
-// move to the corresponding entity
 export const generateLogMessage = (log: AuditLog) => {
     const { action, entityTitle, entityType } = log
 

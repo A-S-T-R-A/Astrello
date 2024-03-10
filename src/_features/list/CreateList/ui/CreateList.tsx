@@ -5,7 +5,7 @@ import { Plus, X } from "lucide-react"
 import { useParams, useRouter } from "next/navigation"
 import { useState, useRef, ElementRef } from "react"
 import { useEventListener, useOnClickOutside } from "usehooks-ts"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { Button } from "@/_shared/ui/Button"
 import { createList } from "../model/services/createList"
 import { FormInput } from "@/_shared/ui/FormInput"
@@ -31,7 +31,7 @@ export function CreateList() {
         setIsEditing(false)
     }
 
-    const { execute, fieldErrors } = useAction(createList, {
+    const { execute, fieldErrors } = useDatabase(createList, {
         onSuccess: data => {
             toast.success(`List "${data.title}" created`)
             disableEditing()

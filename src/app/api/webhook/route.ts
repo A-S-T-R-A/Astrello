@@ -1,8 +1,8 @@
 import Stripe from "stripe"
 import { headers } from "next/headers"
 import { NextResponse } from "next/server"
-import { db } from "@/_shared/lib/db"
-import { stripe } from "@/_shared/lib/stripe"
+import { db } from "@/_shared/config/db"
+import { stripe } from "@/_shared/config/stripe"
 
 export async function POST(req: Request) {
     const body = await req.text()

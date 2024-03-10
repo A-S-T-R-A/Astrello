@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/_shared/ui/Button"
 import { useStripeModal } from "../../lib/useStripeModal"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { toast } from "sonner"
 import { stripeRedirect } from "../../model/services/redirectToStripe"
 import { Modal } from "@/_shared/ui/Modal"
@@ -11,7 +11,7 @@ import { Modal } from "@/_shared/ui/Modal"
 export function RedirectToStripeModal() {
     const proModal = useStripeModal()
 
-    const { execute, isLoading } = useAction(stripeRedirect, {
+    const { execute, isLoading } = useDatabase(stripeRedirect, {
         onSuccess: data => {
             window.location.href = data as string
         },

@@ -2,7 +2,7 @@
 
 import { toast } from "sonner"
 import { List } from "@prisma/client"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { copyList } from "@/_features/list/CopyList/model/services/CopyList"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
@@ -12,7 +12,7 @@ type TListActionsProps = {
 }
 
 export function CopyList({ data, onSuccess }: TListActionsProps) {
-    const { execute: executeCopy } = useAction(copyList, {
+    const { execute: executeCopy } = useDatabase(copyList, {
         onSuccess: data => {
             toast.success(`List "${data.title}" copied`)
             onSuccess()

@@ -6,11 +6,11 @@ import { useParams } from "next/navigation"
 import { useState, useRef, ElementRef } from "react"
 import { useQueryClient } from "@tanstack/react-query"
 import { useEventListener, useOnClickOutside } from "usehooks-ts"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { Skeleton } from "@/_shared/ui/Skeleton"
 import { FormTextarea } from "@/_shared/ui/FormTextarea"
 import { Button } from "@/_shared/ui/Button"
-import { CardWithList } from "@/app/types"
+import { CardWithList } from "@/app/types/types"
 import { updateCard } from "../model/services/updateCard"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
@@ -47,7 +47,7 @@ export function AddCardDescription({ data }: TAddCardDescriptionProps) {
     useEventListener("keydown", onKeyDown)
     useOnClickOutside(formRef, disableEditing)
 
-    const { execute, fieldErrors } = useAction(updateCard, {
+    const { execute, fieldErrors } = useDatabase(updateCard, {
         onSuccess: data => {
             queryClient.invalidateQueries({
                 queryKey: ["card", data.id],

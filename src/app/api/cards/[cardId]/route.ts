@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs"
 import { NextResponse } from "next/server"
-import { db } from "@/_shared/lib/db"
+import { db } from "@/_shared/config/db"
 
 export async function GET(req: Request, { params }: { params: { cardId: string } }) {
     try {

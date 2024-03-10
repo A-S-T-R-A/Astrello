@@ -3,11 +3,11 @@
 import { toast } from "sonner"
 import { Copy, Trash } from "lucide-react"
 import { useParams } from "next/navigation"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { Button } from "@/_shared/ui/Button"
-import { useCardModal } from "@/_entities/card/lib/useCardModal"
+import { useCardModal } from "@/_entities/Card/lib/useCardModal"
 import { deleteCard } from "../model/services/deleteCard"
-import { CardWithList } from "@/app/types"
+import { CardWithList } from "@/app/types/types"
 
 type DeleteCardProps = {
     data: CardWithList
@@ -17,7 +17,7 @@ export function DeleteCard({ data }: DeleteCardProps) {
     const params = useParams()
     const cardModal = useCardModal()
 
-    const { execute, isLoading } = useAction(deleteCard, {
+    const { execute, isLoading } = useDatabase(deleteCard, {
         onSuccess: data => {
             toast.success(`Card "${data.title}" deleted`)
             cardModal.onClose()

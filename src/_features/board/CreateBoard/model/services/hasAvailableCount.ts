@@ -1,5 +1,5 @@
 import { MAX_FREE_BOARDS } from "@/_shared/const/boards"
-import { db } from "@/_shared/lib/db"
+import { db } from "@/_shared/config/db"
 import { auth } from "@clerk/nextjs"
 
 export async function hasAvailableCount() {

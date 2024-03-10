@@ -5,7 +5,7 @@ import { toast } from "sonner"
 import { X } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/_shared/ui/Popover"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { Button } from "@/_shared/ui/Button"
 import { FormInput } from "@/_shared/ui/FormInput"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
@@ -25,7 +25,7 @@ export function CreateBoard(props: TCreateBoardProps) {
     const router = useRouter()
     const closeRef = useRef<ElementRef<"button">>(null)
 
-    const { execute, fieldErrors } = useAction(createBoard, {
+    const { execute, fieldErrors } = useDatabase(createBoard, {
         onSuccess: data => {
             toast.success("Board created!")
             closeRef.current?.click()

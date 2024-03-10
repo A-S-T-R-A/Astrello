@@ -1,7 +1,7 @@
 "use client"
 
 import { toast } from "sonner"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { Button } from "@/_shared/ui/Button"
 import { deleteBoard } from "../model/services/deleteBoard"
 
@@ -10,7 +10,7 @@ interface DeleteBoardProps {
 }
 
 export function DeleteBoard({ id }: DeleteBoardProps) {
-    const { execute, isLoading } = useAction(deleteBoard, {
+    const { execute, isLoading } = useDatabase(deleteBoard, {
         onError: error => {
             toast.error(error)
         },

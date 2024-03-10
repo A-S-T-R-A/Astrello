@@ -5,7 +5,7 @@ import { ElementRef, useRef, useState } from "react"
 import { Board } from "@prisma/client"
 import { Button } from "@/_shared/ui/Button"
 import { FormInput } from "@/_shared/ui/FormInput"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { updateBoard } from "../../model/services/updateBoard"
 
 interface UpdateBoardProps {
@@ -13,7 +13,7 @@ interface UpdateBoardProps {
 }
 
 export function UpdateBoard({ data }: UpdateBoardProps) {
-    const { execute } = useAction(updateBoard, {
+    const { execute } = useDatabase(updateBoard, {
         onSuccess: data => {
             toast.success(`Board "${data.title}" updated!`)
             setTitle(data.title)

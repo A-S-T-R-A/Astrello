@@ -1,5 +1,5 @@
 import { List } from "@prisma/client"
-import { ListActions } from "@/_entities/list/ListActions"
+import { ListActions } from "@/_entities/List/ListActions"
 import { UpdateList } from "@/_features/list/UpdateList"
 import { CopyList } from "@/_features/list/CopyList"
 import { DeleteList } from "@/_features/list/DeleteList"

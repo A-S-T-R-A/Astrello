@@ -5,9 +5,9 @@ import { ElementRef, useRef, useState } from "react"
 import { Layout } from "lucide-react"
 import { useParams } from "next/navigation"
 import { useQueryClient } from "@tanstack/react-query"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { Skeleton } from "@/_shared/ui/Skeleton"
-import { CardWithList } from "@/app/types"
+import { CardWithList } from "@/app/types/types"
 import { FormInput } from "@/_shared/ui/FormInput"
 import { updateCard } from "../model/services/updateCard"
 
@@ -19,7 +19,7 @@ export function UpdateCard({ data }: UpdateCardProps) {
     const queryClient = useQueryClient()
     const params = useParams()
 
-    const { execute } = useAction(updateCard, {
+    const { execute } = useDatabase(updateCard, {
         onSuccess: data => {
             queryClient.invalidateQueries({
                 queryKey: ["card", data.id],

@@ -5,7 +5,7 @@ import { Plus, X } from "lucide-react"
 import { forwardRef, useRef, ElementRef, KeyboardEventHandler } from "react"
 import { useParams } from "next/navigation"
 import { useOnClickOutside, useEventListener } from "usehooks-ts"
-import { useAction } from "@/_shared/hooks/useAction"
+import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { Button } from "@/_shared/ui/Button"
 import { FormTextarea } from "@/_shared/ui/FormTextarea"
 import { createCard } from "../model/services/createCard"
@@ -23,7 +23,7 @@ export const CreateCard = forwardRef<HTMLTextAreaElement, TCreateCardProps>(
         const params = useParams()
         const formRef = useRef<ElementRef<"form">>(null)
 
-        const { execute, fieldErrors } = useAction(createCard, {
+        const { execute, fieldErrors } = useDatabase(createCard, {
             onSuccess: data => {
                 toast.success(`Card "${data.title}" created`)
                 formRef.current?.reset()

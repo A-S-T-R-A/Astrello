@@ -3,9 +3,9 @@
 import { auth } from "@clerk/nextjs"
 import { revalidatePath } from "next/cache"
 import { ACTION, ENTITY_TYPE } from "@prisma/client"
-import { db } from "@/_shared/lib/db"
-import { createAuditLog } from "@/_shared/lib/create-audit-log"
-import { createSafeAction } from "@/_shared/lib/create-safe-action"
+import { db } from "@/_shared/config/db"
+import { createAuditLog } from "@/_shared/lib/createAuditLog"
+import { createSafeAction } from "@/_shared/lib/createSafeAction"
 import { CopyList } from "../types/schema"
 import { InputType, ReturnType } from "../types/types"
 

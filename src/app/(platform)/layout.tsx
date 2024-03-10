@@ -1,8 +1,8 @@
 import { Toaster } from "sonner"
-import { ModalProvider } from "@/_shared/providers/modal-provider"
-import { ClerkProvider } from "@clerk/nextjs"
 import { ReactNode } from "react"
-import { QueryProvider } from "@/_shared/providers/queryProvider"
+import { ClerkProvider } from "@clerk/nextjs"
+import { ModalProvider } from "../providers/modalProvider"
+import { QueryProvider } from "../providers/queryProvider"
 
 export default function PlatformLayout({ children }: { children: ReactNode }) {
     return (
