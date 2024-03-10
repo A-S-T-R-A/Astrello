@@ -3,7 +3,7 @@
 import { toast } from "sonner"
 import { List } from "@prisma/client"
 import { useAction } from "@/_shared/hooks/useAction"
-import { copyList } from "@/_features/listActions/CopyList/model/services/CopyList"
+import { copyList } from "@/_features/list/CopyList/model/services/CopyList"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
 
 type TListActionsProps = {

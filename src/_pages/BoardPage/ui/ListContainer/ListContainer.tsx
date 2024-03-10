@@ -11,11 +11,11 @@ import { ListItem } from "./ListItem"
 import { updateListOrder } from "../../model/services/updateListOrder"
 import { updateCardOrder } from "../../model/services/updateCardOrder"
 import { fetcher } from "@/_shared/lib/fetcher"
-import { UpdateCard } from "@/_features/cardActions/UpdateCard"
-import { CopyCard } from "@/_features/cardActions/CopyCard"
-import { DeleteCard } from "@/_features/cardActions/DeleteCard"
-import { AddCardDescription } from "@/_features/cardActions/AddCardDescription"
-import { CreateList } from "@/_features/listActions/CreateList"
+import { UpdateCard } from "@/_features/card/UpdateCard"
+import { CopyCard } from "@/_features/card/CopyCard"
+import { DeleteCard } from "@/_features/card/DeleteCard"
+import { AddCardDescription } from "@/_features/card/AddCardDescription"
+import { CreateList } from "@/_features/list/CreateList"
 
 interface ListContainerProps {
     data: ListWithCards[]

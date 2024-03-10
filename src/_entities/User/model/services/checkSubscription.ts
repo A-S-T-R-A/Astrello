@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs"
 import { db } from "@/_shared/lib/db"
 
+//const
 const DAY_IN_MS = 86_400_000
 
 export async function checkSubscription() {

@@ -6,7 +6,7 @@ import { cn } from "@/_shared/lib/utils"
 import { ListHeader } from "./ListHeader"
 import { ListWithCards } from "@/app/types"
 import { SmallCard } from "@/_entities/card/SmallCard"
-import { CreateCard } from "@/_features/cardActions/CreateCard"
+import { CreateCard } from "@/_features/card/CreateCard"
 import { useCardModal } from "@/_entities/card/CardModal"
 
 interface ListItemProps {

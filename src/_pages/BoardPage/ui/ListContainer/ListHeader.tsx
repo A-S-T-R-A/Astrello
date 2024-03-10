@@ -1,8 +1,8 @@
 import { List } from "@prisma/client"
 import { ListActions } from "@/_entities/list/ListActions"
-import { UpdateList } from "@/_features/listActions/UpdateList"
-import { CopyList } from "@/_features/listActions/CopyList"
-import { DeleteList } from "@/_features/listActions/DeleteList"
+import { UpdateList } from "@/_features/list/UpdateList"
+import { CopyList } from "@/_features/list/CopyList"
+import { DeleteList } from "@/_features/list/DeleteList"
 import { useRef } from "react"
 
 type TListActionsRef = {

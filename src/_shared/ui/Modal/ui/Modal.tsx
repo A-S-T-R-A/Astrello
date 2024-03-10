@@ -1,4 +1,4 @@
-import { Dialog, DialogContent } from "@/_shared/ui/Dialog"
+import { Dialog, DialogContent } from "../../Dialog"
 import { ReactNode } from "react"
 
 type TModalProps = {

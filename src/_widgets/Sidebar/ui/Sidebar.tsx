@@ -59,6 +59,7 @@ export function Sidebar({ storageKey = "t-sidebar-state" }: SidebarProps) {
 
     return (
         <>
+            {/* should be separate as WorkspacesItem */}
             <div className="font-medium text-xs flex items-center mb-1">
                 <span className="pl-4">Workspaces</span>
                 <Button asChild type="button" size="icon" variant="ghost" className="ml-auto">
@@ -67,6 +68,8 @@ export function Sidebar({ storageKey = "t-sidebar-state" }: SidebarProps) {
                     </Link>
                 </Button>
             </div>
+
+            {/* should be separate as OrganizationItem */}
             <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
                 {userMemberships.data.map(({ organization }) => (
                     <SidebarItemItem
