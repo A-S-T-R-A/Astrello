@@ -7,10 +7,10 @@ import { useRouter } from "next/navigation"
 import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/_shared/ui/Popover"
 import { useAction } from "@/_shared/hooks/useAction"
 import { Button } from "@/_shared/ui/Button"
-import { createBoard } from "@/_features/boardActions/CreateBoard/model/services/createBoard"
-import { BoardImgPicker } from "./BoardImgPicker/BoardImgPicker"
 import { FormInput } from "@/_shared/ui/FormInput"
 import { FormSubmit } from "@/_shared/ui/FormSubmit"
+import { createBoard } from "../model/services/createBoard"
+import { BoardImgPicker } from "./BoardImgPicker/BoardImgPicker"
 
 type TCreateBoardProps = {
     children: ReactNode

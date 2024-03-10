@@ -1,4 +1,4 @@
-import { PrivacyPolicyPage } from "@/_pages/PrivacyPolicyPage/ui/PrivacyPolicyPage"
+import { PrivacyPolicyPage } from "@/_pages/PrivacyPolicyPage"
 
 export default function PolicyPage() {
     return <PrivacyPolicyPage />

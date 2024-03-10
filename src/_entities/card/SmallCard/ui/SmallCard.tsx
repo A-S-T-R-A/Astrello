@@ -2,16 +2,14 @@
 
 import { Card } from "@prisma/client"
 import { Draggable } from "@hello-pangea/dnd"
-import { useCardModal } from "@/_entities/card/CardModal/lib/useCardModal"
 
 type TSmallCardProps = {
     data: Card
     index: number
+    onClick: () => void
 }
 
-export function SmallCard({ data, index }: TSmallCardProps) {
-    const cardModal = useCardModal()
-
+export function SmallCard({ data, index, onClick }: TSmallCardProps) {
     return (
         <Draggable draggableId={data.id} index={index}>
             {provided => (
@@ -20,7 +18,7 @@ export function SmallCard({ data, index }: TSmallCardProps) {
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                     role="button"
-                    onClick={() => cardModal.onOpen(data.id)}
+                    onClick={onClick}
                     className="truncate border-2 border-transparent hover:border-black py-2 px-3 text-sm bg-white rounded-md shadow-sm"
                 >
                     {data.title}

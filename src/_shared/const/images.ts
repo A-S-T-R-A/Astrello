@@ -1,4 +1,4 @@
-export const defaultImages = [
+export const defaultBoardImages = [
     {
         id: "HUiNRjXr-bQ",
         slug: "selective-focus-photography-of-brown-leaves-HUiNRjXr-bQ",

@@ -1,6 +1,6 @@
 import { Separator } from "@/_shared/ui/Separator"
 import { checkSubscription } from "@/_entities/User"
-import { OrganizationInfoCard } from "@/_entities/Organization"
+import { OrganizationInfoCard } from "@/_entities/Organization/OrganizationInfoCard"
 import { BoardList } from "./BoardList/BoardList"
 
 export async function OrganizationBoardsPage() {

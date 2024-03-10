@@ -7,6 +7,7 @@ import { ListHeader } from "./ListHeader"
 import { ListWithCards } from "@/app/types"
 import { SmallCard } from "@/_entities/card/SmallCard"
 import { CreateCard } from "@/_features/cardActions/CreateCard"
+import { useCardModal } from "@/_entities/card/CardModal"
 
 interface ListItemProps {
     data: ListWithCards
@@ -15,6 +16,7 @@ interface ListItemProps {
 
 export function ListItem({ data, index }: ListItemProps) {
     const textareaRef = useRef<ElementRef<"textarea">>(null)
+    const cardModal = useCardModal()
 
     const [isEditing, setIsEditing] = useState(false)
 
@@ -53,7 +55,12 @@ export function ListItem({ data, index }: ListItemProps) {
                                     )}
                                 >
                                     {data.cards.map((card, index) => (
-                                        <SmallCard index={index} key={card.id} data={card} />
+                                        <SmallCard
+                                            onClick={() => cardModal.onOpen(card.id)}
+                                            index={index}
+                                            key={card.id}
+                                            data={card}
+                                        />
                                     ))}
                                     {provided.placeholder}
                                 </ol>

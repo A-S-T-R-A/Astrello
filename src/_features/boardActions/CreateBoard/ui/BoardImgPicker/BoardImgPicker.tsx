@@ -7,9 +7,9 @@ import { useFormStatus } from "react-dom"
 import { useEffect, useState } from "react"
 import { cn } from "@/_shared/lib/utils"
 import { unsplash } from "@/_shared/lib/unsplash"
-import { defaultImages } from "@/_shared/const/images"
+import { defaultBoardImages } from "@/_shared/const/images"
 import { toast } from "sonner"
-import { FormErrors } from "../../../../../_shared/ui/FormErrors/ui/FormErrors"
+import { FormErrors } from "@/_shared/ui/FormErrors/ui/FormErrors"
 
 interface BoardImgPickerProps {
     id: string
@@ -19,7 +19,7 @@ interface BoardImgPickerProps {
 export function BoardImgPicker({ id, errors }: BoardImgPickerProps) {
     const { pending } = useFormStatus()
 
-    const [images, setImages] = useState<Array<Record<string, any>>>(defaultImages)
+    const [images, setImages] = useState<Array<Record<string, any>>>(defaultBoardImages)
     const [isLoading, setIsLoading] = useState(true)
     const [selectedImageId, setSelectedImageId] = useState(null)
 
@@ -39,7 +39,7 @@ export function BoardImgPicker({ id, errors }: BoardImgPickerProps) {
                 }
             } catch (error) {
                 console.log(error)
-                setImages(defaultImages)
+                setImages(defaultBoardImages)
             } finally {
                 setIsLoading(false)
             }

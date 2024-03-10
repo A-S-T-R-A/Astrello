@@ -1,9 +1,10 @@
 import { Plus } from "lucide-react"
-import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
 import { Logo } from "@/_shared/ui/Logo"
 import { Button } from "@/_shared/ui/Button"
 import { ReactNode } from "react"
-import { CreateBoard } from "@/_features/boardActions/CreateBoard/ui/CreateBoard"
+import { CreateBoard } from "@/_features/boardActions/CreateBoard"
+import { OrganizationSwitcher } from "@/_entities/Organization/OrganizationSwitcher"
+import { UserSettings } from "@/_entities/User"
 
 type TNavbarProps = {
     slot?: ReactNode
@@ -33,32 +34,8 @@ export function Navbar({ slot }: TNavbarProps) {
                 </CreateBoard>
             </div>
             <div className="ml-auto flex items-center gap-x-2">
-                <OrganizationSwitcher
-                    hidePersonal
-                    afterCreateOrganizationUrl="/organization/:id"
-                    afterLeaveOrganizationUrl="/select-org"
-                    afterSelectOrganizationUrl="/organization/:id"
-                    appearance={{
-                        elements: {
-                            rootBox: {
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            },
-                        },
-                    }}
-                />
-                <UserButton
-                    afterSignOutUrl="/"
-                    appearance={{
-                        elements: {
-                            avatarBox: {
-                                height: 30,
-                                width: 30,
-                            },
-                        },
-                    }}
-                />
+                <OrganizationSwitcher />
+                <UserSettings />
             </div>
         </nav>
     )

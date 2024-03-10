@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
+import Link from "next/link"
 import { Logo } from "@/_shared/ui/Logo"
 import { Button } from "@/_shared/ui/Button"
-import Link from "next/link"
 
 export default function MarketingLayout({ children }: { children: ReactNode }) {
     return (
