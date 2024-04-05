@@ -3,12 +3,12 @@
 import { toast } from "sonner"
 import { Copy } from "lucide-react"
 import { useParams } from "next/navigation"
+import { CardWithList } from "@/app/types/types"
 import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { Button } from "@/_shared/ui/Button"
 import { Skeleton } from "@/_shared/ui/Skeleton"
 import { useCardModal } from "@/_entities/Card"
 import { copyCard } from "../model/services/copyCard"
-import { CardWithList } from "@/app/types/types"
 
 type TCopyCardProps = {
     data: CardWithList
