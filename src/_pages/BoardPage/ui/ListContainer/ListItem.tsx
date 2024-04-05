@@ -5,7 +5,7 @@ import { Draggable, Droppable } from "@hello-pangea/dnd"
 import { cn } from "@/_shared/lib/cn"
 import { ListHeader } from "./ListHeader"
 import { ListWithCards } from "@/app/types/types"
-import { SmallCard, useCardModal } from "@/_entities/Ccard"
+import { SmallCard, useCardModal } from "@/_entities/Card"
 import { CreateCard } from "@/_features/card/CreateCard"
 
 interface ListItemProps {

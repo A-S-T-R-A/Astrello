@@ -7,7 +7,7 @@ import { CardWithList } from "@/app/types/types"
 import { useDatabase } from "@/_shared/hooks/useDatabase"
 import { Button } from "@/_shared/ui/Button"
 import { Skeleton } from "@/_shared/ui/Skeleton"
-import { useCardModal } from "@/_entities/Ccard"
+import { useCardModal } from "@/_entities/Card"
 import { copyCard } from "../model/services/copyCard"
 
 type TCopyCardProps = {
