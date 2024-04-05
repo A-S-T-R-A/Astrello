@@ -8,7 +8,7 @@ export function TermOfServicePage() {
                     eget fermentum viverra, odio libero consequat ex, id elementum nisi nisl et leo.
                     Integer at libero nec justo faucibus pulvinar. Integer accumsan orci vel justo
                     aliquet, a ullamcorper felis fermentum. Aenean bibendum lectus nec purus tempus
-                    ultrices. Quisque sed nibh et lectus fringilla vulputate.
+                    ultrices. Quisque sed nibh et lectus fringilla vulputat.
                 </p>
                 <p className="text-lg text-gray-700 mb-8">
                     Nullam rutrum fringilla dui. Proin ut vestibulum sem. Ut bibendum convallis
