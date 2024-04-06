@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import { Separator } from "@/_shared/ui/Separator"
 import { checkSubscription } from "@/_entities/User"
 import { ActivityList } from "./ActivityList/ActivityList"
-import { OrganizationInfoCard } from "@/_entities/Organization/OrganizationInfoCard"
+import { OrganizationInfoCard } from "@/_entities/Organization"
 
 export async function OrganizationActivityPage() {
     const isPro = await checkSubscription()

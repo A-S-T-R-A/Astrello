@@ -1,7 +1,7 @@
 import { startCase } from "lodash"
 import { auth } from "@clerk/nextjs"
 import { ReactNode } from "react"
-import { OrganizationControl } from "@/_entities/Organization/OrganizationControl"
+import { OrganizationControl } from "@/_entities/Organization"
 
 export async function generateMetadata() {
     const { orgSlug } = auth()
