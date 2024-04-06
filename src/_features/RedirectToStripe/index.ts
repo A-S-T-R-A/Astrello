@@ -1,2 +1,2 @@
-export { RedirectToStripeButton } from "./ui/RedirectToStripeButton/RedirectToStripeButton"
-export { RedirectToStripeModal } from "./ui/RedirectToStripeModal/RedirectToStripeModal"
+export { RedirectToStripeButton } from "./ui/RedirectToStripeButton/RedirectToStripeButton";
+export { RedirectToStripeModal } from "./ui/RedirectToStripeModal/RedirectToStripeModal";

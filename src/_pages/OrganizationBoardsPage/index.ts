@@ -1,1 +1,1 @@
-export { OrganizationBoardsPage } from "./ui/OrganizationBoardsPage"
+export { OrganizationBoardsPage } from "./ui/OrganizationBoardsPage";

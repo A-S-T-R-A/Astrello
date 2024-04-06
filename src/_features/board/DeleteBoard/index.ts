@@ -1,1 +1,1 @@
-export { DeleteBoard } from "./ui/DeleteBoard"
+export { DeleteBoard } from "./ui/DeleteBoard";

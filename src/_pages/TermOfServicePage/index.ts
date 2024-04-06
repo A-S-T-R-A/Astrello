@@ -1,1 +1,1 @@
-export { TermOfServicePage } from "./ui/TermOfServicePage"
+export { TermOfServicePage } from "./ui/TermOfServicePage";

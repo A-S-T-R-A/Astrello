@@ -1,1 +1,1 @@
-export { FormSubmit } from "./ui/FormSubmit"
+export { FormSubmit } from "./ui/FormSubmit";

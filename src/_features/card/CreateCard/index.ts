@@ -1,1 +1,1 @@
-export { CreateCard } from "./ui/CreateCard"
+export { CreateCard } from "./ui/CreateCard";

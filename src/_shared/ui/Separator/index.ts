@@ -1,1 +1,1 @@
-export { Separator } from "./ui/Separator"
+export { Separator } from "./ui/Separator";

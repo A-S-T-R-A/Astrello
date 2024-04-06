@@ -1,29 +1,29 @@
-import { db } from "@/_shared/config/db"
+import { db } from "@/_shared/config/db";
 
 type TGetBoardLists = {
-    boardId: string
-    orgId: string
-}
+  boardId: string;
+  orgId: string;
+};
 
 export async function getBoardLists({ boardId, orgId }: TGetBoardLists) {
-    const lists = await db.list.findMany({
-        where: {
-            boardId: boardId,
-            board: {
-                orgId,
-            },
-        },
-        include: {
-            cards: {
-                orderBy: {
-                    order: "asc",
-                },
-            },
-        },
+  const lists = await db.list.findMany({
+    where: {
+      boardId: boardId,
+      board: {
+        orgId
+      }
+    },
+    include: {
+      cards: {
         orderBy: {
-            order: "asc",
-        },
-    })
+          order: "asc"
+        }
+      }
+    },
+    orderBy: {
+      order: "asc"
+    }
+  });
 
-    return lists
+  return lists;
 }

@@ -1,21 +1,21 @@
-import { startCase } from "lodash"
-import { auth } from "@clerk/nextjs"
-import { ReactNode } from "react"
-import { OrganizationControl } from "@/_entities/Organization"
+import { startCase } from "lodash";
+import { auth } from "@clerk/nextjs";
+import { ReactNode } from "react";
+import { OrganizationControl } from "@/_entities/Organization";
 
 export async function generateMetadata() {
-    const { orgSlug } = auth()
+  const { orgSlug } = auth();
 
-    return {
-        title: startCase(orgSlug || "organization"),
-    }
+  return {
+    title: startCase(orgSlug || "organization")
+  };
 }
 
 export default function OrganizationIdLayout({ children }: { children: ReactNode }) {
-    return (
-        <>
-            <OrganizationControl />
-            {children}
-        </>
-    )
+  return (
+    <>
+      <OrganizationControl />
+      {children}
+    </>
+  );
 }

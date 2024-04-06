@@ -1,2 +1,2 @@
-export { Sidebar } from "./ui/Sidebar"
-export { MobileSidebar } from "./ui/MobileSidebar"
+export { Sidebar } from "./ui/Sidebar";
+export { MobileSidebar } from "./ui/MobileSidebar";

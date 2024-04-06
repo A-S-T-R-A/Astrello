@@ -1,83 +1,79 @@
-"use client"
+"use client";
 
-import { toast } from "sonner"
-import { ElementRef, useRef, useState } from "react"
-import { Board } from "@prisma/client"
-import { Button } from "@/_shared/ui/Button"
-import { FormInput } from "@/_shared/ui/FormInput"
-import { useDatabase } from "@/_shared/hooks/useDatabase"
-import { updateBoard } from "../../model/services/updateBoard"
+import { toast } from "sonner";
+import { ElementRef, useRef, useState } from "react";
+import { Board } from "@prisma/client";
+import { Button } from "@/_shared/ui/Button";
+import { FormInput } from "@/_shared/ui/FormInput";
+import { useDatabase } from "@/_shared/hooks/useDatabase";
+import { updateBoard } from "../../model/services/updateBoard";
 
 interface UpdateBoardProps {
-    data: Board
+  data: Board;
 }
 
 export function UpdateBoard({ data }: UpdateBoardProps) {
-    const { execute } = useDatabase(updateBoard, {
-        onSuccess: data => {
-            toast.success(`Board "${data.title}" updated!`)
-            setTitle(data.title)
-            disableEditing()
-        },
-        onError: error => {
-            toast.error(error)
-        },
-    })
-
-    const formRef = useRef<ElementRef<"form">>(null)
-    const inputRef = useRef<ElementRef<"input">>(null)
-
-    const [title, setTitle] = useState(data.title)
-    const [isEditing, setIsEditing] = useState(false)
-
-    function enableEditing() {
-        setIsEditing(true)
-        setTimeout(() => {
-            inputRef.current?.focus()
-            inputRef.current?.select()
-        })
+  const { execute } = useDatabase(updateBoard, {
+    onSuccess: (data) => {
+      toast.success(`Board "${data.title}" updated!`);
+      setTitle(data.title);
+      disableEditing();
+    },
+    onError: (error) => {
+      toast.error(error);
     }
+  });
 
-    function disableEditing() {
-        setIsEditing(false)
-    }
+  const formRef = useRef<ElementRef<"form">>(null);
+  const inputRef = useRef<ElementRef<"input">>(null);
 
-    function onSubmit(formData: FormData) {
-        const title = formData.get("title") as string
+  const [title, setTitle] = useState(data.title);
+  const [isEditing, setIsEditing] = useState(false);
 
-        if (data.title === title) return
+  function enableEditing() {
+    setIsEditing(true);
+    setTimeout(() => {
+      inputRef.current?.focus();
+      inputRef.current?.select();
+    });
+  }
 
-        execute({
-            title,
-            id: data.id,
-        })
-    }
+  function disableEditing() {
+    setIsEditing(false);
+  }
 
-    function onBlur() {
-        formRef.current?.requestSubmit()
-    }
+  function onSubmit(formData: FormData) {
+    const title = formData.get("title") as string;
 
-    if (isEditing) {
-        return (
-            <form action={onSubmit} ref={formRef} className="flex items-center gap-x-2">
-                <FormInput
-                    ref={inputRef}
-                    id="title"
-                    onBlur={onBlur}
-                    defaultValue={title}
-                    className="text-lg font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent border-none"
-                />
-            </form>
-        )
-    }
+    if (data.title === title) return;
 
+    execute({
+      title,
+      id: data.id
+    });
+  }
+
+  function onBlur() {
+    formRef.current?.requestSubmit();
+  }
+
+  if (isEditing) {
     return (
-        <Button
-            onClick={enableEditing}
-            variant="transparent"
-            className="font-bold text-lg h-auto w-auto p-1 px-2"
-        >
-            {title}
-        </Button>
-    )
+      <form action={onSubmit} ref={formRef} className="flex items-center gap-x-2">
+        <FormInput
+          ref={inputRef}
+          id="title"
+          onBlur={onBlur}
+          defaultValue={title}
+          className="text-lg font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent border-none"
+        />
+      </form>
+    );
+  }
+
+  return (
+    <Button onClick={enableEditing} variant="transparent" className="font-bold text-lg h-auto w-auto p-1 px-2">
+      {title}
+    </Button>
+  );
 }

@@ -1,86 +1,86 @@
-"use server"
+"use server";
 
-import { auth } from "@clerk/nextjs"
-import { revalidatePath } from "next/cache"
-import { ACTION, ENTITY_TYPE } from "@prisma/client"
-import { db } from "@/_shared/config/db"
-import { createAuditLog } from "@/_shared/lib/createAuditLog"
-import { createSafeAction } from "@/_shared/lib/createSafeAction"
-import { CopyList } from "../types/schema"
-import { InputType, ReturnType } from "../types/types"
+import { auth } from "@clerk/nextjs";
+import { revalidatePath } from "next/cache";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
+import { db } from "@/_shared/config/db";
+import { createAuditLog } from "@/_shared/lib/createAuditLog";
+import { createSafeAction } from "@/_shared/lib/createSafeAction";
+import { CopyList } from "../types/schema";
+import { InputType, ReturnType } from "../types/types";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-    const { userId, orgId } = auth()
+  const { userId, orgId } = auth();
 
-    if (!userId || !orgId) {
-        return {
-            error: "Unauthorized",
+  if (!userId || !orgId) {
+    return {
+      error: "Unauthorized"
+    };
+  }
+
+  const { id, boardId } = data;
+  let list;
+
+  try {
+    const listToCopy = await db.list.findUnique({
+      where: {
+        id,
+        boardId,
+        board: {
+          orgId
         }
+      },
+      include: {
+        cards: true
+      }
+    });
+
+    if (!listToCopy) {
+      return { error: "List not found" };
     }
 
-    const { id, boardId } = data
-    let list
+    const lastList = await db.list.findFirst({
+      where: { boardId },
+      orderBy: { order: "desc" },
+      select: { order: true }
+    });
 
-    try {
-        const listToCopy = await db.list.findUnique({
-            where: {
-                id,
-                boardId,
-                board: {
-                    orgId,
-                },
-            },
-            include: {
-                cards: true,
-            },
-        })
+    const newOrder = lastList ? lastList.order + 1 : 1;
 
-        if (!listToCopy) {
-            return { error: "List not found" }
+    list = await db.list.create({
+      data: {
+        boardId: listToCopy.boardId,
+        title: `${listToCopy.title} - Copy`,
+        order: newOrder,
+        cards: {
+          createMany: {
+            data: listToCopy.cards.map((card) => ({
+              title: card.title,
+              description: card.description,
+              order: card.order
+            }))
+          }
         }
+      },
+      include: {
+        cards: true
+      }
+    });
 
-        const lastList = await db.list.findFirst({
-            where: { boardId },
-            orderBy: { order: "desc" },
-            select: { order: true },
-        })
+    await createAuditLog({
+      entityTitle: list.title,
+      entityId: list.id,
+      entityType: ENTITY_TYPE.LIST,
+      action: ACTION.CREATE
+    });
+  } catch (error) {
+    return {
+      error: "Failed to copy."
+    };
+  }
 
-        const newOrder = lastList ? lastList.order + 1 : 1
+  revalidatePath(`/board/${boardId}`);
+  return { data: list };
+};
 
-        list = await db.list.create({
-            data: {
-                boardId: listToCopy.boardId,
-                title: `${listToCopy.title} - Copy`,
-                order: newOrder,
-                cards: {
-                    createMany: {
-                        data: listToCopy.cards.map(card => ({
-                            title: card.title,
-                            description: card.description,
-                            order: card.order,
-                        })),
-                    },
-                },
-            },
-            include: {
-                cards: true,
-            },
-        })
-
-        await createAuditLog({
-            entityTitle: list.title,
-            entityId: list.id,
-            entityType: ENTITY_TYPE.LIST,
-            action: ACTION.CREATE,
-        })
-    } catch (error) {
-        return {
-            error: "Failed to copy.",
-        }
-    }
-
-    revalidatePath(`/board/${boardId}`)
-    return { data: list }
-}
-
-export const copyList = createSafeAction(CopyList, handler)
+export const copyList = createSafeAction(CopyList, handler);

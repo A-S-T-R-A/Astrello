@@ -1,5 +1,5 @@
-import { OrganizationBoardsPage } from "@/_pages/OrganizationBoardsPage"
+import { OrganizationBoardsPage } from "@/_pages/OrganizationBoardsPage";
 
 export default function OrganizationIdPage() {
-    return <OrganizationBoardsPage />
+  return <OrganizationBoardsPage />;
 }

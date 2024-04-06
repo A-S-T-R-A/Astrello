@@ -1,5 +1,5 @@
-import { TermOfServicePage } from "@/_pages/TermOfServicePage"
+import { TermOfServicePage } from "@/_pages/TermOfServicePage";
 
 export default function TermsPage() {
-    return <TermOfServicePage />
+  return <TermOfServicePage />;
 }

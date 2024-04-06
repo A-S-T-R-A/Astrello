@@ -1,1 +1,1 @@
-export { UpdateList } from "./ui/UpdateList"
+export { UpdateList } from "./ui/UpdateList";

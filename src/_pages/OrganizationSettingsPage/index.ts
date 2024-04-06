@@ -1,1 +1,1 @@
-export { OrganizationSettingsPage } from "./ui/OrganizationSettingsPage"
+export { OrganizationSettingsPage } from "./ui/OrganizationSettingsPage";
