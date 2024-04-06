@@ -3,7 +3,7 @@ import { Logo } from "@/_shared/ui/Logo"
 import { Button } from "@/_shared/ui/Button"
 import { ReactNode } from "react"
 import { CreateBoard } from "@/_features/board/CreateBoard"
-import { OrganizationSwitcher } from "@/_entities/Organization/OrganizationSwitcher"
+import { OrganizationSwitcher } from "@/_entities/Organization"
 import { UserSettings } from "@/_entities/User"
 
 type TNavbarProps = {
