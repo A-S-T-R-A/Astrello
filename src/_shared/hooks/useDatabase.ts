@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
-import { ActionState, FieldErrors } from "@/_shared/lib/createSafeAction";
+import { TActionState, TFieldErrors } from "@/_shared/lib/createSafeAction";
 
-type TAction<TInput, TOutput> = (data: TInput) => Promise<ActionState<TInput, TOutput>>;
+type TAction<TInput, TOutput> = (data: TInput) => Promise<TActionState<TInput, TOutput>>;
 
 type TUseActionOptions<TOutput> = {
   onSuccess?: (data: TOutput) => void;
@@ -13,7 +13,7 @@ export function useDatabase<TInput, TOutput>(
   action: TAction<TInput, TOutput>,
   options: TUseActionOptions<TOutput> = {}
 ) {
-  const [fieldErrors, setFieldErrors] = useState<FieldErrors<TInput> | undefined>(undefined);
+  const [fieldErrors, setFieldErrors] = useState<TFieldErrors<TInput> | undefined>(undefined);
   const [error, setError] = useState<string | undefined>(undefined);
   const [data, setData] = useState<TOutput | undefined>(undefined);
   const [isLoading, setIsLoading] = useState<boolean>(false);

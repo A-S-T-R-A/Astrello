@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { Card } from "@prisma/client";
-import { ActionState } from "@/_shared/lib/createSafeAction";
-import { CreateCard } from "./schema";
+import { TActionState } from "@/_shared/lib/createSafeAction";
+import { CreateCardSchema } from "./schema";
 
-export type InputType = z.infer<typeof CreateCard>;
-export type ReturnType = ActionState<InputType, Card>;
+export type InputType = z.infer<typeof CreateCardSchema>;
+export type ReturnType = TActionState<InputType, Card>;

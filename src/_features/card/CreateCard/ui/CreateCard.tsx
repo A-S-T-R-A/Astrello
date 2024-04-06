@@ -8,7 +8,7 @@ import { useOnClickOutside, useEventListener } from "usehooks-ts";
 import { useDatabase } from "@/_shared/hooks/useDatabase";
 import { Button } from "@/_shared/ui/Button";
 import { FormTextarea } from "@/_shared/ui/FormTextarea";
-import { createCard } from "../model/services/createCard";
+import { createCardAction } from "../model/services/createCardAction";
 import { FormSubmit } from "@/_shared/ui/FormSubmit";
 
 type TCreateCardProps = {
@@ -23,7 +23,7 @@ export const CreateCard = forwardRef<HTMLTextAreaElement, TCreateCardProps>(
     const params = useParams();
     const formRef = useRef<ElementRef<"form">>(null);
 
-    const { execute, fieldErrors } = useDatabase(createCard, {
+    const { execute, fieldErrors } = useDatabase(createCardAction, {
       onSuccess: (data) => {
         toast.success(`Card "${data.title}" created`);
         formRef.current?.reset();
@@ -59,7 +59,7 @@ export const CreateCard = forwardRef<HTMLTextAreaElement, TCreateCardProps>(
 
     if (isEditing) {
       return (
-        <form ref={formRef} action={onSubmit} className="m-1 py-0.5 px-1 space-y-4">
+        <form ref={formRef} action={onSubmit} className="m-1 py-0.5 px-1 space-y-2 -mt-1">
           <FormTextarea
             id="title"
             onKeyDown={onTextareakeyDown}
@@ -82,7 +82,7 @@ export const CreateCard = forwardRef<HTMLTextAreaElement, TCreateCardProps>(
       <div className="pt-2 px-2">
         <Button
           onClick={enableEditing}
-          className="h-auto px-2 py-1.5 w-full justify-start text-muted-foreground text-sm"
+          className="h-auto px-2 pb-2 w-full justify-start text-muted-foreground text-sm"
           size="sm"
           variant="ghost"
         >

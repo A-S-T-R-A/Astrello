@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const CreateCard = z.object({
+export const CreateCardSchema = z.object({
   title: z
     .string({
       required_error: "Title is required",

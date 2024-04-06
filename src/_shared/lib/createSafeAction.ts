@@ -1,24 +1,24 @@
 import { z } from "zod";
 
-export type FieldErrors<T> = {
+export type TFieldErrors<T> = {
   [K in keyof T]?: string[];
 };
 
-export type ActionState<TInput, TOutput> = {
-  fieldErrors?: FieldErrors<TInput>;
+export type TActionState<TInput, TOutput> = {
+  fieldErrors?: TFieldErrors<TInput>;
   error?: string | null;
   data?: TOutput;
 };
 
 export function createSafeAction<TInput, TOutput>(
   schema: z.Schema<TInput>,
-  handler: (validatedData: TInput) => Promise<ActionState<TInput, TOutput>>
+  handler: (validatedData: TInput) => Promise<TActionState<TInput, TOutput>>
 ) {
-  return async (data: TInput): Promise<ActionState<TInput, TOutput>> => {
+  return async (data: TInput): Promise<TActionState<TInput, TOutput>> => {
     const validationResult = schema.safeParse(data);
     if (!validationResult.success) {
       return {
-        fieldErrors: validationResult.error.flatten().fieldErrors as FieldErrors<TInput>
+        fieldErrors: validationResult.error.flatten().fieldErrors as TFieldErrors<TInput>
       };
     }
 
