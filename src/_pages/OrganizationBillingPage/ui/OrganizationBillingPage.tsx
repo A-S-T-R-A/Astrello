@@ -1,7 +1,7 @@
 import { checkSubscription } from "@/_entities/User"
 import { Separator } from "@/_shared/ui/Separator"
 import { OrganizationInfoCard } from "@/_entities/Organization"
-import { RedirectToStripeButton } from "@/_features/RredirectToStripe"
+import { RedirectToStripeButton } from "@/_features/redirectToStripe"
 
 export async function OrganizationBillingPage() {
     const isPro = await checkSubscription()
