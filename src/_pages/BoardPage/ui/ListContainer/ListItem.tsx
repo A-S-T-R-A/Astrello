@@ -41,7 +41,7 @@ export function ListItem({ data, index }: ListItemProps) {
                 <ol
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className={cn("mx-1 px-1 py-0.5 flex flex-col gap-y-2", data.cards.length > 0 ? "mt-2" : "mt-0")}
+                  className={cn("mx-1 px-1 py-0.5 flex flex-col", data.cards.length > 0 ? "mt-2" : "mt-0")}
                 >
                   {data.cards.map((card, index) => (
                     <SmallCard onClick={() => cardModal.onOpen(card.id)} index={index} key={card.id} data={card} />
