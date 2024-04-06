@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 import { db } from "@/_shared/config/db";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
 import { InputType, ReturnType } from "../types/types";
-import { CreateBoard } from "../types/schema";
+import { CreateBoardSchema } from "../types/schema";
 import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { hasAvailableCount } from "./hasAvailableCount";
@@ -75,4 +75,4 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   return { data: board };
 };
 
-export const createBoard = createSafeAction(CreateBoard, handler);
+export const createBoardAction = createSafeAction(CreateBoardSchema, handler);

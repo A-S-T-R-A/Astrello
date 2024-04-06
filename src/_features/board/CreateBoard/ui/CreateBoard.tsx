@@ -9,7 +9,7 @@ import { useDatabase } from "@/_shared/hooks/useDatabase";
 import { Button } from "@/_shared/ui/Button";
 import { FormInput } from "@/_shared/ui/FormInput";
 import { FormSubmit } from "@/_shared/ui/FormSubmit";
-import { createBoard } from "../model/services/createBoard";
+import { createBoardAction } from "../model/services/createBoardAction";
 import { BoardImgPicker } from "./BoardImgPicker/BoardImgPicker";
 
 type TCreateBoardProps = {
@@ -25,7 +25,7 @@ export function CreateBoard(props: TCreateBoardProps) {
   const router = useRouter();
   const closeRef = useRef<ElementRef<"button">>(null);
 
-  const { execute, fieldErrors } = useDatabase(createBoard, {
+  const { execute, fieldErrors } = useDatabase(createBoardAction, {
     onSuccess: (data) => {
       toast.success("Board created!");
       closeRef.current?.click();

@@ -2,12 +2,12 @@
 
 import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
-import { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { db } from "@/_shared/config/db";
-import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
-import { CopyList } from "../types/schema";
+import { CreateListSchema } from "../types/schema";
 import { InputType, ReturnType } from "../types/types";
+import { createAuditLog } from "@/_shared/lib/createAuditLog";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -18,29 +18,25 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  const { id, boardId } = data;
+  const { title, boardId } = data;
   let list;
 
   try {
-    const listToCopy = await db.list.findUnique({
+    const board = await db.board.findUnique({
       where: {
-        id,
-        boardId,
-        board: {
-          orgId
-        }
-      },
-      include: {
-        cards: true
+        id: boardId,
+        orgId
       }
     });
 
-    if (!listToCopy) {
-      return { error: "List not found" };
+    if (!board) {
+      return {
+        error: "Board not found"
+      };
     }
 
     const lastList = await db.list.findFirst({
-      where: { boardId },
+      where: { boardId: boardId },
       orderBy: { order: "desc" },
       select: { order: true }
     });
@@ -49,21 +45,9 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 
     list = await db.list.create({
       data: {
-        boardId: listToCopy.boardId,
-        title: `${listToCopy.title} - Copy`,
-        order: newOrder,
-        cards: {
-          createMany: {
-            data: listToCopy.cards.map((card) => ({
-              title: card.title,
-              description: card.description,
-              order: card.order
-            }))
-          }
-        }
-      },
-      include: {
-        cards: true
+        title,
+        boardId,
+        order: newOrder
       }
     });
 
@@ -75,7 +59,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     });
   } catch (error) {
     return {
-      error: "Failed to copy."
+      error: "Failed to create."
     };
   }
 
@@ -83,4 +67,4 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   return { data: list };
 };
 
-export const copyList = createSafeAction(CopyList, handler);
+export const createListAction = createSafeAction(CreateListSchema, handler);

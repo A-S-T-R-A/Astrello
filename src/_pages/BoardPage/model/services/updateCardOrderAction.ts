@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
 import { db } from "@/_shared/config/db";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
-import { UpdateCardOrder } from "../types/updateCardOrderSchema";
+import { UpdateCardOrderSchema } from "../types/updateCardOrderSchema";
 import { InputType, ReturnType } from "../types/updateCardOrderTypes";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
@@ -48,4 +48,4 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   return { data: updatedCards };
 };
 
-export const updateCardOrder = createSafeAction(UpdateCardOrder, handler);
+export const updateCardOrderAction = createSafeAction(UpdateCardOrderSchema, handler);

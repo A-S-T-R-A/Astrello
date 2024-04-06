@@ -6,7 +6,7 @@ import { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { db } from "@/_shared/config/db";
 import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
-import { CopyCard } from "../types/schema";
+import { CopyCardSchema } from "../types/schema";
 import { InputType, ReturnType } from "../types/types";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
@@ -70,4 +70,4 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   return { data: card };
 };
 
-export const copyCard = createSafeAction(CopyCard, handler);
+export const copyCardAction = createSafeAction(CopyCardSchema, handler);

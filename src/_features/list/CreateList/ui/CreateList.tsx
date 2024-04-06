@@ -1,15 +1,15 @@
 "use client";
 
+import { useState, useRef, ElementRef } from "react";
 import { toast } from "sonner";
 import { Plus, X } from "lucide-react";
-import { useParams, useRouter } from "next/navigation";
-import { useState, useRef, ElementRef } from "react";
 import { useEventListener, useOnClickOutside } from "usehooks-ts";
+import { useParams, useRouter } from "next/navigation";
 import { useDatabase } from "@/_shared/hooks/useDatabase";
 import { Button } from "@/_shared/ui/Button";
-import { createList } from "../model/services/createList";
 import { FormInput } from "@/_shared/ui/FormInput";
 import { FormSubmit } from "@/_shared/ui/FormSubmit";
+import { createListAction } from "../model/services/createListAction";
 
 export function CreateList() {
   const router = useRouter();
@@ -31,7 +31,7 @@ export function CreateList() {
     setIsEditing(false);
   }
 
-  const { execute, fieldErrors } = useDatabase(createList, {
+  const { execute, fieldErrors } = useDatabase(createListAction, {
     onSuccess: (data) => {
       toast.success(`List "${data.title}" created`);
       disableEditing();

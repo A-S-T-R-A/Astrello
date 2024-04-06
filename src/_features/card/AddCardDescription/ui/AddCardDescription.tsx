@@ -11,7 +11,7 @@ import { Skeleton } from "@/_shared/ui/Skeleton";
 import { FormTextarea } from "@/_shared/ui/FormTextarea";
 import { Button } from "@/_shared/ui/Button";
 import { CardWithList } from "@/app/types/types";
-import { updateCard } from "../model/services/updateCard";
+import { updateCardAction } from "../model/services/updateCardAction";
 import { FormSubmit } from "@/_shared/ui/FormSubmit";
 
 type TAddCardDescriptionProps = {
@@ -47,7 +47,7 @@ export function AddCardDescription({ data }: TAddCardDescriptionProps) {
   useEventListener("keydown", onKeyDown);
   useOnClickOutside(formRef, disableEditing);
 
-  const { execute, fieldErrors } = useDatabase(updateCard, {
+  const { execute, fieldErrors } = useDatabase(updateCardAction, {
     onSuccess: (data) => {
       queryClient.invalidateQueries({
         queryKey: ["card", data.id]

@@ -4,7 +4,7 @@ import { auth, currentUser } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
 import { db } from "@/_shared/config/db";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
-import { StripeRedirect } from "../types/schema";
+import { StripeRedirectSchema } from "../types/schema";
 import { InputType, ReturnType } from "../types/types";
 import { absoluteUrl } from "@/_shared/config/unsplash";
 import { stripe } from "@/_shared/config/stripe";
@@ -78,4 +78,4 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   return { data: url };
 };
 
-export const stripeRedirect = createSafeAction(StripeRedirect, handler);
+export const redirectToStripeAction = createSafeAction(StripeRedirectSchema, handler);

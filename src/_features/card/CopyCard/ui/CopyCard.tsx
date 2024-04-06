@@ -8,7 +8,7 @@ import { useDatabase } from "@/_shared/hooks/useDatabase";
 import { Button } from "@/_shared/ui/Button";
 import { Skeleton } from "@/_shared/ui/Skeleton";
 import { useCardModal } from "@/_entities/Card";
-import { copyCard } from "../model/services/copyCard";
+import { copyCardAction } from "../model/services/copyCardAction";
 
 type TCopyCardProps = {
   data: CardWithList;
@@ -18,7 +18,7 @@ export function CopyCard({ data }: TCopyCardProps) {
   const params = useParams();
   const cardModal = useCardModal();
 
-  const { execute: executeCopyCard, isLoading: isLoadingCopy } = useDatabase(copyCard, {
+  const { execute: executeCopyCard, isLoading: isLoadingCopy } = useDatabase(copyCardAction, {
     onSuccess: (data) => {
       toast.success(`Card "${data.title}" copied`);
       cardModal.onClose();

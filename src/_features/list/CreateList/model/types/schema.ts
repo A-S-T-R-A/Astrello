@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const CreateList = z.object({
+export const CreateListSchema = z.object({
   title: z
     .string({
       required_error: "Title is required",

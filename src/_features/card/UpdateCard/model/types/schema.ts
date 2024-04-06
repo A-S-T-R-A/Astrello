@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const UpdateCard = z.object({
+export const UpdateCardSchema = z.object({
   boardId: z.string(),
   description: z.optional(
     z

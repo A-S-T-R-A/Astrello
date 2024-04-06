@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
 import { db } from "@/_shared/config/db";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
-import { CreateList } from "../types/schema";
+import { UpdateListSchema } from "../types/schema";
 import { InputType, ReturnType } from "../types/types";
 import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
@@ -18,48 +18,32 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  const { title, boardId } = data;
+  const { title, id, boardId } = data;
   let list;
 
   try {
-    const board = await db.board.findUnique({
+    list = await db.list.update({
       where: {
-        id: boardId,
-        orgId
-      }
-    });
-
-    if (!board) {
-      return {
-        error: "Board not found"
-      };
-    }
-
-    const lastList = await db.list.findFirst({
-      where: { boardId: boardId },
-      orderBy: { order: "desc" },
-      select: { order: true }
-    });
-
-    const newOrder = lastList ? lastList.order + 1 : 1;
-
-    list = await db.list.create({
-      data: {
-        title,
+        id,
         boardId,
-        order: newOrder
+        board: {
+          orgId
+        }
+      },
+      data: {
+        title
       }
     });
 
     await createAuditLog({
       entityTitle: list.title,
       entityId: list.id,
-      entityType: ENTITY_TYPE.LIST,
-      action: ACTION.CREATE
+      entityType: ENTITY_TYPE.CARD,
+      action: ACTION.UPDATE
     });
   } catch (error) {
     return {
-      error: "Failed to create."
+      error: "Failed to update."
     };
   }
 
@@ -67,4 +51,4 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   return { data: list };
 };
 
-export const createList = createSafeAction(CreateList, handler);
+export const updateListAction = createSafeAction(UpdateListSchema, handler);

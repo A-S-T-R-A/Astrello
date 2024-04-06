@@ -9,7 +9,7 @@ import { useDatabase } from "@/_shared/hooks/useDatabase";
 import { Skeleton } from "@/_shared/ui/Skeleton";
 import { CardWithList } from "@/app/types/types";
 import { FormInput } from "@/_shared/ui/FormInput";
-import { updateCard } from "../model/services/updateCard";
+import { updateCardAction } from "../model/services/updateCardAction";
 
 type UpdateCardProps = {
   data: CardWithList;
@@ -19,7 +19,7 @@ export function UpdateCard({ data }: UpdateCardProps) {
   const queryClient = useQueryClient();
   const params = useParams();
 
-  const { execute } = useDatabase(updateCard, {
+  const { execute } = useDatabase(updateCardAction, {
     onSuccess: (data) => {
       queryClient.invalidateQueries({
         queryKey: ["card", data.id]
