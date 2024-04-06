@@ -1,1 +1,1 @@
-export { Avatar, AvatarFallback, AvatarImage } from "./ui/Avatar"
+export { Avatar, AvatarFallback, AvatarImage } from "./ui/Avatar";

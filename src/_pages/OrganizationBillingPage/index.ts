@@ -1,1 +1,1 @@
-export { OrganizationBillingPage } from "./ui/OrganizationBillingPage"
+export { OrganizationBillingPage } from "./ui/OrganizationBillingPage";

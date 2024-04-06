@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { RedirectToStripeModal } from "@/_features/RedirectToStripe"
+import { useEffect, useState } from "react";
+import { RedirectToStripeModal } from "@/_features/RedirectToStripe";
 
 export function ModalProvider() {
-    const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false);
 
-    useEffect(() => {
-        setIsMounted(true)
-    }, [])
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-    if (!isMounted) {
-        return null
-    }
+  if (!isMounted) {
+    return null;
+  }
 
-    return (
-        <>
-            <RedirectToStripeModal />
-        </>
-    )
+  return (
+    <>
+      <RedirectToStripeModal />
+    </>
+  );
 }

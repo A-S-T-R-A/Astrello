@@ -1,81 +1,81 @@
-"use server"
+"use server";
 
-import { auth, currentUser } from "@clerk/nextjs"
-import { revalidatePath } from "next/cache"
-import { db } from "@/_shared/config/db"
-import { createSafeAction } from "@/_shared/lib/createSafeAction"
-import { StripeRedirect } from "../types/schema"
-import { InputType, ReturnType } from "../types/types"
-import { absoluteUrl } from "@/_shared/config/unsplash"
-import { stripe } from "@/_shared/config/stripe"
+import { auth, currentUser } from "@clerk/nextjs";
+import { revalidatePath } from "next/cache";
+import { db } from "@/_shared/config/db";
+import { createSafeAction } from "@/_shared/lib/createSafeAction";
+import { StripeRedirect } from "../types/schema";
+import { InputType, ReturnType } from "../types/types";
+import { absoluteUrl } from "@/_shared/config/unsplash";
+import { stripe } from "@/_shared/config/stripe";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-    const { userId, orgId } = auth()
-    const user = await currentUser()
+  const { userId, orgId } = auth();
+  const user = await currentUser();
 
-    if (!userId || !orgId || !user) {
-        return {
-            error: "Unauthorized",
-        }
-    }
+  if (!userId || !orgId || !user) {
+    return {
+      error: "Unauthorized"
+    };
+  }
 
-    const settingsUrl = absoluteUrl(`/organization/${orgId}`)
+  const settingsUrl = absoluteUrl(`/organization/${orgId}`);
 
-    let url = ""
+  let url = "";
 
-    try {
-        const orgSubscription = await db.orgSubscription.findUnique({
-            where: {
-                orgId,
+  try {
+    const orgSubscription = await db.orgSubscription.findUnique({
+      where: {
+        orgId
+      }
+    });
+
+    if (orgSubscription && orgSubscription.stripeCustomerId) {
+      const stripeSession = await stripe.billingPortal.sessions.create({
+        customer: orgSubscription.stripeCustomerId,
+        return_url: settingsUrl
+      });
+
+      url = stripeSession.url;
+    } else {
+      const stripeSession = await stripe.checkout.sessions.create({
+        success_url: settingsUrl,
+        cancel_url: settingsUrl,
+        payment_method_types: ["card"],
+        mode: "subscription",
+        billing_address_collection: "auto",
+        customer_email: user.emailAddresses[0].emailAddress,
+        line_items: [
+          {
+            price_data: {
+              currency: "USD",
+              product_data: {
+                name: "Astrello Pro",
+                description: "Unlimited boards for your organization"
+              },
+              unit_amount: 2000,
+              recurring: {
+                interval: "month"
+              }
             },
-        })
-
-        if (orgSubscription && orgSubscription.stripeCustomerId) {
-            const stripeSession = await stripe.billingPortal.sessions.create({
-                customer: orgSubscription.stripeCustomerId,
-                return_url: settingsUrl,
-            })
-
-            url = stripeSession.url
-        } else {
-            const stripeSession = await stripe.checkout.sessions.create({
-                success_url: settingsUrl,
-                cancel_url: settingsUrl,
-                payment_method_types: ["card"],
-                mode: "subscription",
-                billing_address_collection: "auto",
-                customer_email: user.emailAddresses[0].emailAddress,
-                line_items: [
-                    {
-                        price_data: {
-                            currency: "USD",
-                            product_data: {
-                                name: "Astrello Pro",
-                                description: "Unlimited boards for your organization",
-                            },
-                            unit_amount: 2000,
-                            recurring: {
-                                interval: "month",
-                            },
-                        },
-                        quantity: 1,
-                    },
-                ],
-                metadata: {
-                    orgId,
-                },
-            })
-
-            url = stripeSession.url || ""
+            quantity: 1
+          }
+        ],
+        metadata: {
+          orgId
         }
-    } catch {
-        return {
-            error: "Something went wrong!",
-        }
+      });
+
+      url = stripeSession.url || "";
     }
+  } catch {
+    return {
+      error: "Something went wrong!"
+    };
+  }
 
-    revalidatePath(`/organization/${orgId}`)
-    return { data: url }
-}
+  revalidatePath(`/organization/${orgId}`);
+  return { data: url };
+};
 
-export const stripeRedirect = createSafeAction(StripeRedirect, handler)
+export const stripeRedirect = createSafeAction(StripeRedirect, handler);

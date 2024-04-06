@@ -1,5 +1,5 @@
-import { SignIn } from "@clerk/nextjs"
+import { SignIn } from "@clerk/nextjs";
 
 export function SignInPage() {
-    return <SignIn />
+  return <SignIn />;
 }

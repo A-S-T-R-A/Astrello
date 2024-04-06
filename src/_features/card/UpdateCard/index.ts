@@ -1,1 +1,1 @@
-export { UpdateCard } from "./ui/UpdateCard"
+export { UpdateCard } from "./ui/UpdateCard";

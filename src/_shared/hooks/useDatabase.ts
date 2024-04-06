@@ -1,58 +1,58 @@
-import { useState, useCallback } from "react"
-import { ActionState, FieldErrors } from "@/_shared/lib/createSafeAction"
+import { useState, useCallback } from "react";
+import { ActionState, FieldErrors } from "@/_shared/lib/createSafeAction";
 
-type TAction<TInput, TOutput> = (data: TInput) => Promise<ActionState<TInput, TOutput>>
+type TAction<TInput, TOutput> = (data: TInput) => Promise<ActionState<TInput, TOutput>>;
 
 type TUseActionOptions<TOutput> = {
-    onSuccess?: (data: TOutput) => void
-    onError?: (error: string) => void
-    onComplete?: () => void
-}
+  onSuccess?: (data: TOutput) => void;
+  onError?: (error: string) => void;
+  onComplete?: () => void;
+};
 
 export function useDatabase<TInput, TOutput>(
-    action: TAction<TInput, TOutput>,
-    options: TUseActionOptions<TOutput> = {}
+  action: TAction<TInput, TOutput>,
+  options: TUseActionOptions<TOutput> = {}
 ) {
-    const [fieldErrors, setFieldErrors] = useState<FieldErrors<TInput> | undefined>(undefined)
-    const [error, setError] = useState<string | undefined>(undefined)
-    const [data, setData] = useState<TOutput | undefined>(undefined)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors<TInput> | undefined>(undefined);
+  const [error, setError] = useState<string | undefined>(undefined);
+  const [data, setData] = useState<TOutput | undefined>(undefined);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const execute = useCallback(
-        async (input: TInput) => {
-            setIsLoading(true)
+  const execute = useCallback(
+    async (input: TInput) => {
+      setIsLoading(true);
 
-            try {
-                const result = await action(input)
+      try {
+        const result = await action(input);
 
-                if (!result) {
-                    return
-                }
+        if (!result) {
+          return;
+        }
 
-                setFieldErrors(result.fieldErrors)
+        setFieldErrors(result.fieldErrors);
 
-                if (result.error) {
-                    setError(result.error)
-                    options.onError?.(result.error)
-                }
+        if (result.error) {
+          setError(result.error);
+          options.onError?.(result.error);
+        }
 
-                if (result.data) {
-                    setData(result.data)
-                    options.onSuccess?.(result.data)
-                }
-            } finally {
-                setIsLoading(false)
-                options.onComplete?.()
-            }
-        },
-        [action, options]
-    )
+        if (result.data) {
+          setData(result.data);
+          options.onSuccess?.(result.data);
+        }
+      } finally {
+        setIsLoading(false);
+        options.onComplete?.();
+      }
+    },
+    [action, options]
+  );
 
-    return {
-        execute,
-        fieldErrors,
-        error,
-        data,
-        isLoading,
-    }
+  return {
+    execute,
+    fieldErrors,
+    error,
+    data,
+    isLoading
+  };
 }

@@ -1,5 +1,5 @@
-import { SelectOrganizationPage } from "@/_pages/SelectOrganizationPage"
+import { SelectOrganizationPage } from "@/_pages/SelectOrganizationPage";
 
 export default function CreateOrganizationPage() {
-    return <SelectOrganizationPage />
+  return <SelectOrganizationPage />;
 }

@@ -1,1 +1,1 @@
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/Accordion"
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/Accordion";

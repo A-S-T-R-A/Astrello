@@ -1,10 +1,10 @@
-import { createApi } from "unsplash-js"
+import { createApi } from "unsplash-js";
 
 export const unsplash = createApi({
-    accessKey: process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY!,
-    fetch: fetch,
-})
+  accessKey: process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY!,
+  fetch: fetch
+});
 
 export function absoluteUrl(path: string) {
-    return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
+  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;
 }

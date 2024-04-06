@@ -1,1 +1,1 @@
-export { UpdateBoard } from "./ui/UpdateBoard/UpdateBoard"
+export { UpdateBoard } from "./ui/UpdateBoard/UpdateBoard";

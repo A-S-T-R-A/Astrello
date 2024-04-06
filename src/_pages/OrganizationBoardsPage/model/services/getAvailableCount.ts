@@ -1,19 +1,19 @@
-import { db } from "@/_shared/config/db"
-import { auth } from "@clerk/nextjs"
+import { db } from "@/_shared/config/db";
+import { auth } from "@clerk/nextjs";
 
 export async function getAvailableCount() {
-    const { orgId } = auth()
+  const { orgId } = auth();
 
-    if (!orgId) {
-        return 0
-    }
+  if (!orgId) {
+    return 0;
+  }
 
-    const orgLimit = await db.orgLimit.findUnique({
-        where: { orgId },
-    })
+  const orgLimit = await db.orgLimit.findUnique({
+    where: { orgId }
+  });
 
-    if (!orgLimit) {
-        return 0
-    }
-    return orgLimit.count
+  if (!orgLimit) {
+    return 0;
+  }
+  return orgLimit.count;
 }

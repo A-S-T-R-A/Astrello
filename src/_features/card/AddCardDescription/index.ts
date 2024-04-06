@@ -1,1 +1,1 @@
-export { AddCardDescription } from "./ui/AddCardDescription"
+export { AddCardDescription } from "./ui/AddCardDescription";

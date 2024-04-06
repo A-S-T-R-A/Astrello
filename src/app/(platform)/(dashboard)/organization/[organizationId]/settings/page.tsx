@@ -1,5 +1,5 @@
-import { OrganizationSettingsPage } from "@/_pages/OrganizationSettingsPage"
+import { OrganizationSettingsPage } from "@/_pages/OrganizationSettingsPage";
 
 export default function SettingsPage() {
-    return <OrganizationSettingsPage />
+  return <OrganizationSettingsPage />;
 }

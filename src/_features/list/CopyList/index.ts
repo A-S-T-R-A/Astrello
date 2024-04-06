@@ -1,1 +1,1 @@
-export { CopyList } from "./ui/CopyList"
+export { CopyList } from "./ui/CopyList";
