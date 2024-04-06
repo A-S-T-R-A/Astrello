@@ -8,8 +8,8 @@ import { ListWithCards, CardWithList } from "@/app/types/types";
 import { CardModal, useCardModal } from "@/_entities/Card";
 import { useDatabase } from "@/_shared/hooks/useDatabase";
 import { ListItem } from "./ListItem";
-import { updateListOrder } from "../../model/services/updateListOrder";
-import { updateCardOrder } from "../../model/services/updateCardOrder";
+import { updateListOrderAction } from "../../model/services/updateListOrderAction";
+import { updateCardOrderAction } from "../../model/services/updateCardOrderAction";
 import { fetcher } from "@/_shared/lib/fetcher";
 import { UpdateCard } from "@/_features/card/UpdateCard";
 import { CopyCard } from "@/_features/card/CopyCard";
@@ -33,7 +33,7 @@ function reorder<T>(list: T[], startIndex: number, endIndex: number) {
 export function ListContainer({ data, boardId }: ListContainerProps) {
   const [orderedData, setOrderedData] = useState(data);
 
-  const { execute: executeUpdateListOrder } = useDatabase(updateListOrder, {
+  const { execute: executeUpdateListOrder } = useDatabase(updateListOrderAction, {
     onSuccess: () => {
       toast.success("List reordered");
     },
@@ -42,7 +42,7 @@ export function ListContainer({ data, boardId }: ListContainerProps) {
     }
   });
 
-  const { execute: executeUpdateCardOrder } = useDatabase(updateCardOrder, {
+  const { execute: executeUpdateCardOrder } = useDatabase(updateCardOrderAction, {
     onSuccess: () => {
       toast.success("Card reordered");
     },

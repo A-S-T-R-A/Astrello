@@ -6,14 +6,14 @@ import { Board } from "@prisma/client";
 import { Button } from "@/_shared/ui/Button";
 import { FormInput } from "@/_shared/ui/FormInput";
 import { useDatabase } from "@/_shared/hooks/useDatabase";
-import { updateBoard } from "../../model/services/updateBoard";
+import { updateBoardAction } from "../../model/services/updateBoardAction";
 
 interface UpdateBoardProps {
   data: Board;
 }
 
 export function UpdateBoard({ data }: UpdateBoardProps) {
-  const { execute } = useDatabase(updateBoard, {
+  const { execute } = useDatabase(updateBoardAction, {
     onSuccess: (data) => {
       toast.success(`Board "${data.title}" updated!`);
       setTitle(data.title);

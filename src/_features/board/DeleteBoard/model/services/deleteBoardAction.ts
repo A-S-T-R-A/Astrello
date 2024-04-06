@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { db } from "@/_shared/config/db";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
-import { DeleteBoard } from "../types/schema";
+import { DeleteBoardSchema } from "../types/schema";
 import { InputType, ReturnType } from "../types/types";
 import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
@@ -52,4 +52,4 @@ async function handler(data: InputType): Promise<ReturnType> {
   redirect(`/`);
 }
 
-export const deleteBoard = createSafeAction(DeleteBoard, handler);
+export const deleteBoardAction = createSafeAction(DeleteBoardSchema, handler);

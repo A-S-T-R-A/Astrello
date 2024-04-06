@@ -2,11 +2,9 @@
 
 import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
-
 import { db } from "@/_shared/config/db";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
-
-import { UpdateList } from "../types/schema";
+import { UpdateCardSchema } from "../types/schema";
 import { InputType, ReturnType } from "../types/types";
 import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
@@ -20,26 +18,27 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  const { title, id, boardId } = data;
-  let list;
+  const { id, boardId, ...values } = data;
+  let card;
 
   try {
-    list = await db.list.update({
+    card = await db.card.update({
       where: {
         id,
-        boardId,
-        board: {
-          orgId
+        list: {
+          board: {
+            orgId
+          }
         }
       },
       data: {
-        title
+        ...values
       }
     });
 
     await createAuditLog({
-      entityTitle: list.title,
-      entityId: list.id,
+      entityTitle: card.title,
+      entityId: card.id,
       entityType: ENTITY_TYPE.CARD,
       action: ACTION.UPDATE
     });
@@ -50,7 +49,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   }
 
   revalidatePath(`/board/${boardId}`);
-  return { data: list };
+  return { data: card };
 };
 
-export const updateList = createSafeAction(UpdateList, handler);
+export const updateCardAction = createSafeAction(UpdateCardSchema, handler);

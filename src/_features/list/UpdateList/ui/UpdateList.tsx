@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { useEventListener } from "usehooks-ts";
 import { useState, useRef, ElementRef } from "react";
 import { useDatabase } from "@/_shared/hooks/useDatabase";
-import { updateList } from "../model/services/updateList";
+import { updateListAction } from "../model/services/updateListAction";
 import { FormInput } from "@/_shared/ui/FormInput";
 import { List } from "@prisma/client";
 
@@ -31,7 +31,7 @@ export function UpdateList({ data }: TUpdateListProps) {
     setIsEditing(false);
   }
 
-  const { execute } = useDatabase(updateList, {
+  const { execute } = useDatabase(updateListAction, {
     onSuccess: (data) => {
       toast.success(`Renamed to "${data.title}"`);
       setTitle(data.title);

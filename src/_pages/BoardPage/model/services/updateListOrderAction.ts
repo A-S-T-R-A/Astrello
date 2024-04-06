@@ -2,11 +2,9 @@
 
 import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
-
 import { db } from "@/_shared/config/db";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
-
-import { UpdateListOrder } from "../types/updateListOrderSchema";
+import { UpdateListOrderSchema } from "../types/updateListOrderSchema";
 import { InputType, ReturnType } from "../types/updateListOrderTypes";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
@@ -47,4 +45,4 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   return { data: lists };
 };
 
-export const updateListOrder = createSafeAction(UpdateListOrder, handler);
+export const updateListOrderAction = createSafeAction(UpdateListOrderSchema, handler);

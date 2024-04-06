@@ -5,13 +5,13 @@ import { Button } from "@/_shared/ui/Button";
 import { useStripeModal } from "../../lib/useStripeModal";
 import { useDatabase } from "@/_shared/hooks/useDatabase";
 import { toast } from "sonner";
-import { stripeRedirect } from "../../model/services/redirectToStripe";
+import { redirectToStripeAction } from "../../model/services/redirectToStripeAction";
 import { Modal } from "@/_shared/ui/Modal";
 
 export function RedirectToStripeModal() {
   const proModal = useStripeModal();
 
-  const { execute, isLoading } = useDatabase(stripeRedirect, {
+  const { execute, isLoading } = useDatabase(redirectToStripeAction, {
     onSuccess: (data) => {
       window.location.href = data as string;
     },

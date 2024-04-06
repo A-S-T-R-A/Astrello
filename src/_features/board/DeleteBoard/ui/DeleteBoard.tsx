@@ -3,14 +3,14 @@
 import { toast } from "sonner";
 import { useDatabase } from "@/_shared/hooks/useDatabase";
 import { Button } from "@/_shared/ui/Button";
-import { deleteBoard } from "../model/services/deleteBoard";
+import { deleteBoardAction } from "../model/services/deleteBoardAction";
 
 interface DeleteBoardProps {
   id: string;
 }
 
 export function DeleteBoard({ id }: DeleteBoardProps) {
-  const { execute, isLoading } = useDatabase(deleteBoard, {
+  const { execute, isLoading } = useDatabase(deleteBoardAction, {
     onError: (error) => {
       toast.error(error);
     }

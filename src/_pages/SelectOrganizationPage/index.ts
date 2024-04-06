@@ -1,1 +1,1 @@
-export { SelectOrganizationPage } from "./SelectOrganizationPage/SelectOrganizationPage";
+export { SelectOrganizationPage } from "./ui/SelectOrganizationPage";

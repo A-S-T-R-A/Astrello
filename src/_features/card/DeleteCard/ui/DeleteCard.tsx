@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import { useDatabase } from "@/_shared/hooks/useDatabase";
 import { Button } from "@/_shared/ui/Button";
 import { useCardModal } from "@/_entities/Card/lib/useCardModal";
-import { deleteCard } from "../model/services/deleteCard";
+import { deleteCardAction } from "../model/services/deleteCardAction";
 import { CardWithList } from "@/app/types/types";
 
 type DeleteCardProps = {
@@ -17,7 +17,7 @@ export function DeleteCard({ data }: DeleteCardProps) {
   const params = useParams();
   const cardModal = useCardModal();
 
-  const { execute, isLoading } = useDatabase(deleteCard, {
+  const { execute, isLoading } = useDatabase(deleteCardAction, {
     onSuccess: (data) => {
       toast.success(`Card "${data.title}" deleted`);
       cardModal.onClose();
