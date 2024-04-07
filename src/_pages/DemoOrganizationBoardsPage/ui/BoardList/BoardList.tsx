@@ -4,9 +4,8 @@ import { Hint } from "@/_shared/ui/Hint";
 import { Skeleton } from "@/_shared/ui/Skeleton";
 import { MAX_FREE_BOARDS } from "@/_shared/const/boards";
 import { getAvailableCount } from "../../model/services/getAvailableCount";
-import { checkSubscription } from "@/_entities/User";
 import { BoardCard } from "@/_entities/Board";
-import { CreateBoard } from "@/_features/board/CreateBoard/ui/CreateBoard";
+import { DemoCreateBoard } from "@/_features/board/CreateBoard";
 
 export async function BoardList() {
   const boards = await db.board.findMany({
@@ -30,7 +29,7 @@ export async function BoardList() {
         {boards.map((board) => (
           <BoardCard key={board.id} board={board} />
         ))}
-        <CreateBoard sideOffset={10} side="bottom">
+        <DemoCreateBoard sideOffset={10} side="bottom">
           <div
             role="button"
             className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition"
@@ -44,7 +43,7 @@ export async function BoardList() {
               <HelpCircle className="absolute bottom-2 right-2 h-[14px] w-[14px]" />
             </Hint>
           </div>
-        </CreateBoard>
+        </DemoCreateBoard>
       </div>
     </div>
   );
