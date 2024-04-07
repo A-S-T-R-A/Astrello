@@ -10,13 +10,11 @@ import { routes } from "../const/routes";
 import { TOrganization } from "../model/types/types";
 
 interface NavItemProps {
-  isExpanded: boolean;
-  isActive: boolean;
   organization: TOrganization;
   onExpand: (id: string) => void;
 }
 
-export function OrganizationItem({ isExpanded, isActive, organization, onExpand }: NavItemProps) {
+export function OrganizationItem({ organization, onExpand }: NavItemProps) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -28,10 +26,7 @@ export function OrganizationItem({ isExpanded, isActive, organization, onExpand 
     <AccordionItem value={organization.id} className="border-none">
       <AccordionTrigger
         onClick={() => onExpand(organization.id)}
-        className={cn(
-          "flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline",
-          isActive && !isExpanded && "bg-sky-500/10 text-sky-700"
-        )}
+        className="flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline"
       >
         <div className="flex items-center gap-x-2">
           <div className="w-7 h-7 relative">
@@ -41,12 +36,12 @@ export function OrganizationItem({ isExpanded, isActive, organization, onExpand 
         </div>
       </AccordionTrigger>
       <AccordionContent className="pt-1 text-neutral-700">
-        {routes.map((route) => {
+        {routes.map((route, index) => {
           const href = route.getHref(organization.id);
 
           return (
             <Button
-              key={href}
+              key={`${href}-${index}`}
               size="sm"
               onClick={() => onClick(href)}
               className={cn(

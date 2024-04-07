@@ -5,7 +5,7 @@ import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import { Skeleton } from "@/_shared/ui/Skeleton";
 import { OrganizationItem } from "./OrganizationItem";
 import { Accordion } from "@/_shared/ui/Accordion";
-import { Organization } from "../model/types/types";
+import { TOrganization } from "../model/types/types";
 import { WorkspacesItem } from "./WorkspacesItem";
 
 interface SidebarProps {
@@ -62,7 +62,7 @@ export function Sidebar({ storageKey = "t-sidebar-state" }: SidebarProps) {
             key={organization.id}
             isActive={activeOrganization?.id === organization.id}
             isExpanded={expanded[organization.id]}
-            organization={organization as Organization}
+            organization={organization as TOrganization}
             onExpand={onExpand}
           />
         ))}
