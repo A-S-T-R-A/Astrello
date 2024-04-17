@@ -1,6 +1,6 @@
 "use client";
 
-import { ElementRef, ReactNode, forwardRef, useImperativeHandle, useRef } from "react";
+import React, { ElementRef, ReactNode, forwardRef, useImperativeHandle, useRef } from "react";
 import { MoreHorizontal, X } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger, PopoverClose } from "@/_shared/ui/Popover";
 import { Button } from "@/_shared/ui/Button";
@@ -52,10 +52,10 @@ export const ListActions = forwardRef(({ onAddCard, actions }: TListActionsProps
           const isLast = index === actions.length - 1;
 
           return (
-            <>
+            <React.Fragment key={index}>
               {isLast && <Separator />}
               {action}
-            </>
+            </React.Fragment>
           );
         })}
       </PopoverContent>

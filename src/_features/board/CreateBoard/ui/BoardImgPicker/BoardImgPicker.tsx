@@ -38,7 +38,6 @@ export function BoardImgPicker({ id, errors }: BoardImgPickerProps) {
           toast.error("Failed to get images from Unsplash");
         }
       } catch (error) {
-        console.log(error);
         setImages(defaultBoardImages);
       } finally {
         setIsLoading(false);

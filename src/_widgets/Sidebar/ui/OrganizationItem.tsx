@@ -7,12 +7,12 @@ import { AccordionContent, AccordionItem, AccordionTrigger } from "@/_shared/ui/
 import { Button } from "@/_shared/ui/Button";
 import { Skeleton } from "@/_shared/ui/Skeleton";
 import { routes } from "../const/routes";
-import { Organization } from "../model/types/types";
+import { TOrganization } from "../model/types/types";
 
 interface NavItemProps {
   isExpanded: boolean;
   isActive: boolean;
-  organization: Organization;
+  organization: TOrganization;
   onExpand: (id: string) => void;
 }
 

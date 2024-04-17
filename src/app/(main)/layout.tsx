@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { Logo } from "@/_shared/ui/Logo";
 import { Button } from "@/_shared/ui/Button";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 export default function MarketingLayout({ children }: { children: ReactNode }) {
   return (
@@ -14,7 +15,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
               <Link href="/sign-in">Login</Link>
             </Button>
             <Button size="sm" asChild>
-              <Link href="/sign-up">Get Astrello for free</Link>
+              <Link href={`/demo/organization/${DEMO_ORGANIZATION_ID}`}>Demo Page</Link>
             </Button>
           </div>
         </div>
