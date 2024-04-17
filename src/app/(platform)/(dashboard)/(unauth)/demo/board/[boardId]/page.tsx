@@ -1,4 +1,4 @@
-import { BoardPage } from "@/_pages/BoardPage";
+import { DemoBoardPage } from "@/_pages/DemoBoardPage";
 
 interface BoardIdPageProps {
   params: {
@@ -7,5 +7,5 @@ interface BoardIdPageProps {
 }
 
 export default function BoardIdPage({ params }: BoardIdPageProps) {
-  return <BoardPage boardId={params.boardId} />;
+  return <DemoBoardPage boardId={params.boardId} />;
 }

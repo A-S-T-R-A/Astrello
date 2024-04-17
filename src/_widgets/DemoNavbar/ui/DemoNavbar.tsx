@@ -1,8 +1,8 @@
 import { Plus } from "lucide-react";
-import { Logo } from "@/_shared/ui/Logo";
+import { DemoLogo } from "@/_shared/ui/Logo";
 import { Button } from "@/_shared/ui/Button";
 import { ReactNode } from "react";
-import { CreateBoard, DemoCreateBoard } from "@/_features/board/CreateBoard";
+import { DemoCreateBoard } from "@/_features/board/CreateBoard";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,7 +17,7 @@ export function DemoNavbar({ slot }: TNavbarProps) {
 
       <div className="flex items-center gap-x-4">
         <div className="hidden md:flex">
-          <Logo />
+          <DemoLogo />
         </div>
         <DemoCreateBoard align="start" side="bottom" sideOffset={18}>
           <Button variant="primary" size="sm" className="rounded-sm hidden md:block h-auto  py-1.5 px-2">

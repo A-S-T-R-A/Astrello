@@ -4,7 +4,7 @@ import { Hint } from "@/_shared/ui/Hint";
 import { Skeleton } from "@/_shared/ui/Skeleton";
 import { MAX_FREE_BOARDS } from "@/_shared/const/boards";
 import { getAvailableCount } from "../../model/services/getAvailableCount";
-import { BoardCard } from "@/_entities/Board";
+import { DemoBoardCard } from "@/_entities/Board";
 import { DemoCreateBoard } from "@/_features/board/CreateBoard";
 
 export async function BoardList() {
@@ -27,7 +27,7 @@ export async function BoardList() {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {boards.map((board) => (
-          <BoardCard key={board.id} board={board} />
+          <DemoBoardCard key={board.id} board={board} />
         ))}
         <DemoCreateBoard sideOffset={10} side="bottom">
           <div
