@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/_shared/config/db";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 export async function GET(req: Request, { params }: { params: { cardId: string } }) {
   try {
@@ -8,7 +9,7 @@ export async function GET(req: Request, { params }: { params: { cardId: string }
         id: params.cardId,
         list: {
           board: {
-            orgId: "111"
+            orgId: DEMO_ORGANIZATION_ID
           }
         }
       },

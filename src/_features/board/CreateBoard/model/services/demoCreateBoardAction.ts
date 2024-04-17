@@ -11,6 +11,7 @@ import { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { incrementAvailableCount } from "./incrementAvailableCount";
 import { demoHasAvailableCount } from "./demoHasAvailableCount";
 import { demoIncrementAvailableCount } from "./demoIncrementAvailableCount";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const canCreate = await demoHasAvailableCount();
@@ -37,7 +38,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     board = await db.board.create({
       data: {
         title,
-        orgId: "111",
+        orgId: DEMO_ORGANIZATION_ID,
         imageId,
         imageThumbUrl,
         imageFullUrl,

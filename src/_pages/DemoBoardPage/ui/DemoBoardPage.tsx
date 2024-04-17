@@ -3,19 +3,20 @@ import { BoardNavbar } from "./BoardNavbar/BoardNavbar";
 import { ListContainer } from "./ListContainer/ListContainer";
 import { getBoardCards } from "../model/services/getBoardCards";
 import { getBoardLists } from "../model/services/getBoardLists";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 interface BoardPageProps {
   boardId: string;
 }
 
 export async function DemoBoardPage({ boardId }: BoardPageProps) {
-  const board = await getBoardCards({ boardId, orgId: "111" });
+  const board = await getBoardCards({ boardId, orgId: DEMO_ORGANIZATION_ID });
 
   if (!board) {
     notFound();
   }
 
-  const lists = await getBoardLists({ boardId, orgId: "111" });
+  const lists = await getBoardLists({ boardId, orgId: DEMO_ORGANIZATION_ID });
 
   return (
     <>

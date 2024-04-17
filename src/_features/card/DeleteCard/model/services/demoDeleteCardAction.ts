@@ -7,6 +7,7 @@ import { DeleteCardSchema } from "../types/schema";
 import { InputType, ReturnType } from "../types/types";
 import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { id, boardId } = data;
@@ -18,7 +19,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         id,
         list: {
           board: {
-            orgId: "111"
+            orgId: DEMO_ORGANIZATION_ID
           }
         }
       }

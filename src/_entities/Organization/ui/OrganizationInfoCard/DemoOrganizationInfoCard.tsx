@@ -4,6 +4,7 @@ import Image from "next/image";
 import { CreditCard } from "lucide-react";
 import { useParams } from "next/navigation";
 import { mockOrganizationImg } from "../../const/const";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 export function DemoOrganizationInfoCard() {
   const { organizationId } = useParams();
@@ -15,7 +16,7 @@ export function DemoOrganizationInfoCard() {
       </div>
       <div className="space-y-1">
         <p className="truncate max-w-52 font-semibold text-xl">
-          {organizationId === "111" ? "Astrello Organization 1" : "Astrello Organization 2"}
+          {organizationId === DEMO_ORGANIZATION_ID ? "Astrello Organization 1" : "Astrello Organization 2"}
         </p>
         <div className="flex items-center text-xs text-muted-foreground">
           <CreditCard className="h-3 w-3 mr-1" />

@@ -136,7 +136,7 @@ export function ListContainer({ data, boardId }: ListContainerProps) {
 
   const { data: cardData } = useQuery<CardWithList>({
     queryKey: ["card", id],
-    queryFn: () => fetcher(`/api/demoCards/${id}`)
+    queryFn: () => fetcher(`/api/demo/cards/${id}`)
   });
 
   return (
@@ -144,7 +144,7 @@ export function ListContainer({ data, boardId }: ListContainerProps) {
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="lists" type="list" direction="horizontal">
           {(provided) => (
-            <ol {...provided.droppableProps} ref={provided.innerRef} className="flex gap-x-3 h-full">
+            <ol {...provided.droppableProps} ref={provided.innerRef} className="flex gap-x-3 h-full ">
               {orderedData.map((list, index) => {
                 return <ListItem key={list.id} index={index} data={list} />;
               })}

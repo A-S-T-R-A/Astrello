@@ -6,11 +6,12 @@ import { MAX_FREE_BOARDS } from "@/_shared/const/boards";
 import { getAvailableCount } from "../../model/services/getAvailableCount";
 import { DemoBoardCard } from "@/_entities/Board";
 import { DemoCreateBoard } from "@/_features/board/CreateBoard";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 export async function BoardList() {
   const boards = await db.board.findMany({
     where: {
-      orgId: "111"
+      orgId: DEMO_ORGANIZATION_ID
     },
     orderBy: {
       createdAt: "desc"

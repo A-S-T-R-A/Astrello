@@ -32,7 +32,7 @@ export function DemoSidebar({ storageKey = "t-sidebar-state" }: SidebarProps) {
     <>
       <WorkspacesItem />
       <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
-        {mockOrganizationData.map((organization, index) => (
+        {mockOrganizationData.map((organization) => (
           <OrganizationItem key={organization.id} organization={organization} onExpand={onExpand} />
         ))}
       </Accordion>

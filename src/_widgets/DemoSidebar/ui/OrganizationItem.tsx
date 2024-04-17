@@ -37,16 +37,14 @@ export function OrganizationItem({ organization, onExpand }: NavItemProps) {
       </AccordionTrigger>
       <AccordionContent className="pt-1 text-neutral-700">
         {routes.map((route, index) => {
-          const href = route.getHref(organization.id);
-
           return (
             <Button
-              key={`${href}-${index}`}
+              key={`${route.href}-${index}`}
               size="sm"
-              onClick={() => onClick(href)}
+              onClick={() => onClick(route.href)}
               className={cn(
                 "w-full font-normal justify-start pl-10 mb-1",
-                pathname === href && "bg-sky-500/10 text-sky-700"
+                pathname === route.href && "bg-sky-500/10 text-sky-700"
               )}
               variant="ghost"
             >

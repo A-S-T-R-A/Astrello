@@ -5,6 +5,7 @@ import { db } from "@/_shared/config/db";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
 import { UpdateListOrderSchema } from "../types/updateListOrderSchema";
 import { InputType, ReturnType } from "../types/updateListOrderTypes";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { items, boardId } = data;
@@ -16,7 +17,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         where: {
           id: list.id,
           board: {
-            orgId: "111"
+            orgId: DEMO_ORGANIZATION_ID
           }
         },
         data: {

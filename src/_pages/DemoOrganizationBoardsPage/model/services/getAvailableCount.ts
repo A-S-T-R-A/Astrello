@@ -1,8 +1,9 @@
 import { db } from "@/_shared/config/db";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 export async function getAvailableCount() {
   const orgLimit = await db.orgLimit.findUnique({
-    where: { orgId: "111" }
+    where: { orgId: DEMO_ORGANIZATION_ID }
   });
 
   if (!orgLimit) {

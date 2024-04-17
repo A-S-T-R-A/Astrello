@@ -8,6 +8,7 @@ import { InputType, ReturnType } from "../types/types";
 import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { demoDecreaseAvailableCount } from "./demoDecreaseAvailableCount";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 async function handler(data: InputType): Promise<ReturnType> {
   const { id } = data;
@@ -17,7 +18,7 @@ async function handler(data: InputType): Promise<ReturnType> {
     board = await db.board.delete({
       where: {
         id,
-        orgId: "111"
+        orgId: DEMO_ORGANIZATION_ID
       }
     });
 
@@ -35,7 +36,7 @@ async function handler(data: InputType): Promise<ReturnType> {
     };
   }
 
-  redirect(`/demo/organization/111`);
+  redirect(`/demo/organization/${DEMO_ORGANIZATION_ID}`);
 }
 
 export const demoDeleteBoardAction = createSafeAction(DeleteBoardSchema, handler);

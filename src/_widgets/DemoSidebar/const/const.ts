@@ -1,8 +1,9 @@
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 import { TOrganization } from "../model/types/types";
 
 export const mockOrganizationData: TOrganization[] = [
   {
-    id: "111",
+    id: DEMO_ORGANIZATION_ID,
     name: "Astrello Organization 1",
     slug: "Astrello Organization 1",
     imageUrl:

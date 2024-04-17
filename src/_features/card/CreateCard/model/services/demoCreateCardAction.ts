@@ -7,6 +7,7 @@ import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
 import { CreateCardSchema } from "../types/schema";
 import { InputType, ReturnType } from "../types/types";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { title, boardId, listId } = data;
@@ -17,7 +18,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       where: {
         id: listId,
         board: {
-          orgId: "111"
+          orgId: DEMO_ORGANIZATION_ID
         }
       }
     });

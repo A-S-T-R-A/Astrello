@@ -9,7 +9,7 @@ export default authMiddleware({
     "/privacy-policy",
     "/demo/organization/:id",
     "/demo/board/:id",
-    "/api/demoCards/:id"
+    "/api/demo/cards/:id"
   ],
   afterAuth(auth, req) {
     if (auth.userId && auth.isPublicRoute) {

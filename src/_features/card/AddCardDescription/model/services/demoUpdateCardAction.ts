@@ -1,6 +1,5 @@
 "use server";
 
-import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
 import { db } from "@/_shared/config/db";
 import { createSafeAction } from "@/_shared/lib/createSafeAction";
@@ -8,6 +7,7 @@ import { UpdateCardSchema } from "../types/schema";
 import { InputType, ReturnType } from "../types/types";
 import { createAuditLog } from "@/_shared/lib/createAuditLog";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { id, boardId, ...values } = data;
@@ -19,7 +19,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         id,
         list: {
           board: {
-            orgId: "111"
+            orgId: DEMO_ORGANIZATION_ID
           }
         }
       },
@@ -40,7 +40,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  revalidatePath(`/board/${boardId}`);
+  revalidatePath(`demo/board/${boardId}`);
   return { data: card };
 };
 

@@ -1,13 +1,13 @@
-import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import { ENTITY_TYPE } from "@prisma/client";
 import { db } from "@/_shared/config/db";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 export async function GET(request: Request, { params }: { params: { cardId: string } }) {
   try {
     const auditLogs = await db.auditLog.findMany({
       where: {
-        orgId: "111",
+        orgId: DEMO_ORGANIZATION_ID,
         entityId: params.cardId,
         entityType: ENTITY_TYPE.CARD
       },
