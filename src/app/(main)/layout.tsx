@@ -14,7 +14,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
               <Link href="/sign-in">Login</Link>
             </Button>
             <Button size="sm" asChild>
-              <Link href="/sign-up">Get Astrello for free</Link>
+              <Link href="/demo/organization/111">Demo Page</Link>
             </Button>
           </div>
         </div>

@@ -14,8 +14,6 @@ export function DemoCardModal(props: TCardModal) {
   const { header, description, actions } = props;
   const { isOpen, onClose } = useCardModal();
 
-  console.log("DemoCardModal", isOpen);
-
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       {header}

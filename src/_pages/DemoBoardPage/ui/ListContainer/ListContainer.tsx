@@ -139,8 +139,6 @@ export function ListContainer({ data, boardId }: ListContainerProps) {
     queryFn: () => fetcher(`/api/demoCards/${id}`)
   });
 
-  console.log(cardData, id);
-
   return (
     <>
       <DragDropContext onDragEnd={onDragEnd}>
