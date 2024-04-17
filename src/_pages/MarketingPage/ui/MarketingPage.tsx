@@ -4,6 +4,7 @@ import { Medal } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/_shared/lib/cn";
 import { Poppins } from "next/font/google";
+import { DEMO_ORGANIZATION_ID } from "@/_shared/const/orgId";
 
 const headingFont = localFont({
   src: "../../../../public/fonts/font.woff2"
@@ -36,9 +37,14 @@ export function MarketingPage() {
         Collaborate, manage projects, and reach new productivity peaks. From high rises to the home office, the way your
         team works is unique - accomplish it all with Astrello.
       </div>
-      <Button className="mt-6" size="lg" asChild>
-        <Link href="/sign-up">Get Astrello for free</Link>
-      </Button>
+      <div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full mt-3">
+        <Button size="sm" variant="outline" asChild>
+          <Link href="/sign-in">Login</Link>
+        </Button>
+        <Button size="sm" asChild>
+          <Link href={`/demo/organization/${DEMO_ORGANIZATION_ID}`}>Demo Page</Link>
+        </Button>
+      </div>
     </div>
   );
 }
