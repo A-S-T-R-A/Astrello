@@ -20,13 +20,8 @@ export function Navbar({ slot }: TNavbarProps) {
           <Logo />
         </div>
         <CreateBoard align="start" side="bottom" sideOffset={18}>
-          <Button variant="primary" size="sm" className="rounded-sm hidden md:block h-auto  py-1.5 px-2">
+          <Button variant="primary" size="sm" className="rounded-sm block h-auto py-1.5 px-2">
             Create
-          </Button>
-        </CreateBoard>
-        <CreateBoard>
-          <Button variant="primary" size="sm" className="rounded-sm block md:hidden">
-            <Plus className="h-4 w-4" />
           </Button>
         </CreateBoard>
       </div>
