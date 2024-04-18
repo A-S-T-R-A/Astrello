@@ -37,7 +37,7 @@ export function MarketingPage() {
         Collaborate, manage projects, and reach new productivity peaks. From high rises to the home office, the way your
         team works is unique - accomplish it all with Astrello.
       </div>
-      <div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full mt-3">
+      <div className="space-x-4 block w-auto mt-3">
         <Button size="sm" variant="outline" asChild>
           <Link href="/sign-in">Login</Link>
         </Button>

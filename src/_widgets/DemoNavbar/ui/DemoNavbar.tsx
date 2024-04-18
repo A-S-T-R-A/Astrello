@@ -20,13 +20,8 @@ export function DemoNavbar({ slot }: TNavbarProps) {
           <DemoLogo />
         </div>
         <DemoCreateBoard align="start" side="bottom" sideOffset={18}>
-          <Button variant="primary" size="sm" className="rounded-sm hidden md:block h-auto  py-1.5 px-2">
+          <Button variant="primary" size="sm" className="rounded-sm md:block h-auto  py-1.5 px-2">
             Create
-          </Button>
-        </DemoCreateBoard>
-        <DemoCreateBoard>
-          <Button variant="primary" size="sm" className="rounded-sm block md:hidden">
-            <Plus className="h-4 w-4" />
           </Button>
         </DemoCreateBoard>
       </div>
