@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
-    "cy:open": "npm run dev & npx cypress open",
-    "cy:run": "npm run dev & npx cypress run"
+    "cy:open": "npm run dev & npx cypress open --browser chrome",
+    "cy:run": "npm run dev & npx cypress run --browser chrome"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.6",
